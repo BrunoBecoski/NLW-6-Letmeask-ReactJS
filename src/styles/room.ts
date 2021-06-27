@@ -1,4 +1,6 @@
-#page-room {
+import styled from 'styled-components';
+
+export const Container = styled.div`
   header {
     padding: 24px;
     border-bottom: 1px solid #e2e2e2;
@@ -37,12 +39,12 @@
       h1 {
         font-family: 'Poppins', sans-serif;
         font-size: 24px;
-        color: #29292e;
+        color: var(--black);
       }
 
       span {
         margin-left: 16px;
-        background: #e559f9;
+        background:var(--pink-dark);
         border-radius: 9999px;
         padding: 8px 16px;
         color: #FFF;
@@ -57,7 +59,7 @@
         border: 0;
         padding: 16px;
         border-radius: 8px;
-        background: #fefefe;
+        background: var(--gray-details);
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         resize: vertical;
         min-height: 130px;
@@ -81,7 +83,7 @@
 
           span {
             margin-left: 8px;
-            color: #29292e;
+            color: var(--black);
             font-weight: 500;
             font-size: 14px;
           }
@@ -89,13 +91,13 @@
 
         > span {
           font-size: 14px;
-          color: #737380;
+          color: var(--gray-dark);
           font-weight: 500;
 
           button {
             background: transparent;
             border: 0;
-            color: #835AFD;
+            color: var(--purple);
             text-decoration: underline;
             font-size: 14px;
             font-weight: 500;
@@ -109,4 +111,4 @@
       margin-top: 32px;
     }
   }
-}
+`;

@@ -1,4 +1,6 @@
-#page-auth {
+import styled from 'styled-components';
+
+export const Container =  styled.div`
   display: flex;
   align-items: stretch;
   height: 100vh;
@@ -6,7 +8,7 @@
   aside {
     flex: 7;
 
-    background: #835afd;
+    background: var(--purple);
     color: #FFF;
 
     display: flex;
@@ -29,7 +31,7 @@
       font-size: 24px;
       line-height: 32px;
       margin-top: 16px;
-      color: #f8f8f8;
+      color: var(--gray-background);
     }
   }
 
@@ -81,11 +83,11 @@
 
     p {
       font-size: 14px;
-      color: #737380;
+      color: var(--gray-dark);
       margin-top: 16px;
 
       a {
-        color: #e559f9;
+        color:var(--pink-dark);
       }
     }
   }
@@ -140,4 +142,4 @@
       margin-left: 16px;
     }
   }
-} 
+`;

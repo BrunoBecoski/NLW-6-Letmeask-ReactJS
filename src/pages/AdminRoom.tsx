@@ -12,7 +12,7 @@ import { RoomCode } from '../components/RoomCode';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
 
-import '../styles/room.scss';
+import { Container } from '../styles/room';
 
 type RoomParams = {
   id: string;
@@ -53,7 +53,7 @@ export function AdminRoom() {
   }
 
   return (
-    <div id="page-room">
+    <Container>
       <header>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
@@ -109,6 +109,6 @@ export function AdminRoom() {
           })}
         </div>
       </main>
-    </div>
+    </Container>
   );
 }

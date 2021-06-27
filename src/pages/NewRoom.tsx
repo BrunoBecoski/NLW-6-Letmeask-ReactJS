@@ -8,7 +8,7 @@ import { Button } from '../components/Button';
 import { database } from '../services/firebase';
 import { useAuth } from '../hooks/useAuth';
 
-import '../styles/auth.scss';
+import { Container } from '../styles/auth';
 
 export function NewRoom() {
   const { user } = useAuth();
@@ -33,7 +33,7 @@ export function NewRoom() {
   }
 
   return (
-    <div id="page-auth">
+    <Container>
        <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
@@ -59,6 +59,6 @@ export function NewRoom() {
           </p>
         </div>
       </main>
-    </div>
+    </Container>
   )
 }

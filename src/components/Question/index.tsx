@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import cx from 'classnames';
 
-import { Container } from './styles';
+import { Container, Footer } from './styles';
 
 type QuestionProps = {
   content: string;
@@ -29,7 +29,7 @@ export function Question({
       )}
     >
       <p>{content}</p>
-      <footer>
+      <Footer>
         <div className="user-info">
           <img src={author.avatar} alt={author.name} />
           <span>{author.name}</span>
@@ -37,7 +37,7 @@ export function Question({
         <div>
           {children}
         </div>
-      </footer>
+      </Footer>
     </Container>
   )
 }

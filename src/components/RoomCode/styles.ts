@@ -11,6 +11,15 @@ export const Container = styled.button`
 
   display: flex;
 
+  transition: border .2s;
+
+  &:hover {
+    border-color: var(--hover-purple);    
+    div {
+      background-color: var(--hover-purple);    
+    }
+  }
+
   div {
     background: var(--purple);
     padding: 0 12px;
@@ -19,6 +28,8 @@ export const Container = styled.button`
     align-items: center;
 
     height: 100%;
+
+    transition: background .2s;
   }
 
   span {

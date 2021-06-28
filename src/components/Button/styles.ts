@@ -15,20 +15,25 @@ export const Container = styled.button`
   cursor: pointer;
   border: 0;
 
-  transition: filter 0.2s;
+  transition: background 0.2s;
 
   img {
     margin-right: 8px;
   }
 
-  &.outlined {
+  &.outlined{
     background: #FFF;
     border: 1px solid var(--purple);
     color: var(--purple);
   }
 
-  &:not(:disabled):hover {
-    filter: brightness(0.9);
+  &.outlined:hover {
+    border-color: var(--hover-purple);
+    color: var(--hover-purple);
+  }
+
+  &:not(:disabled):not(.outlined):hover {
+    background: var(--hover-purple);
   }
 
   &:disabled {

@@ -6,11 +6,12 @@ import logoImg from '../assets/images/logo.svg';
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
 import { RoomCode } from '../components/RoomCode';
+import { EmptyQuestions } from '../components/EmptyQuestions';
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
 
-import { Container } from '../styles/room';
+import { Header, Main, Form } from '../styles/room';
 
 type RoomParams = {
   id: string;
@@ -22,7 +23,7 @@ export function Room() {
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id; 
 
-  const { title, questions } = useRoom(roomId);
+  const { title, questions, isLoading } = useRoom(roomId);
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -61,21 +62,21 @@ export function Room() {
   }
 
   return (
-    <Container>
-      <header>
+    <div>
+      <Header>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
           <RoomCode code={roomId} />
         </div>
-      </header>
+      </Header>
 
-      <main>
+      <Main>
         <div className="room-title">
           <h1>Sala {title}</h1>
           { questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
         </div>
 
-        <form onSubmit={handleSendQuestion}>
+        <Form onSubmit={handleSendQuestion}>
           <textarea 
             placeholder="O que você quer perguntar?"
             onChange={event => setNewQuestion(event.target.value)}
@@ -93,9 +94,23 @@ export function Room() {
             ) }
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
           </div>
-        </form>
+        </Form>
 
         <div className="question-list">
+          {isLoading && <h2>Carregando...</h2>}
+
+          {questions.length === 0 && !isLoading && 
+
+            (!user ? 
+              <EmptyQuestions>
+                Faça o seu login e seja a primeira pessoa a fazer uma perguntas!
+              </EmptyQuestions>
+              :
+              <EmptyQuestions>
+                Seja a primeira pessoa a fazer uma perguntas!
+              </EmptyQuestions>)
+          }
+
           {questions.map((question) => {
             return (
               <Question
@@ -122,7 +137,7 @@ export function Room() {
             );
           })}
         </div>
-      </main>
-    </Container>
+      </Main>
+    </div>
   );
 }

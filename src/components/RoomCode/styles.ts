@@ -16,7 +16,7 @@ export const Container = styled.button`
   &:hover {
     border-color: var(--hover-purple);    
     div {
-      background-color: var(--hover-purple);    
+      background: var(--hover-purple);    
     }
   }
 

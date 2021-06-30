@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
 import logoImg from '../assets/images/logo.svg';
@@ -9,6 +10,7 @@ import { Button } from '../components/Button';
 import { Question } from '../components/Question';
 import { RoomCode } from '../components/RoomCode';
 import { EmptyQuestions } from '../components/EmptyQuestions';
+import { RemoveQuestionModal } from '../components/RemoveQuestionModal'; 
 // import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
@@ -24,8 +26,20 @@ export function AdminRoom() {
   const history = useHistory();
   const params = useParams<RoomParams>();
   const roomId = params.id; 
-
+  
   const { title, questions, isLoading } = useRoom(roomId);
+  
+  const [removeQuestionModalIsOpen, setRemoveQuestionModalIsOpen] = useState(false);
+  const [removeQuestionId, setRemoveQuestionId] = useState('');
+
+  function handleOpenRemoveQuestionModal(questionId: string) {
+    setRemoveQuestionId(questionId)
+    setRemoveQuestionModalIsOpen(true);
+  }
+
+  function handleCloseRemoveQuestionModal() {
+    setRemoveQuestionModalIsOpen(false);
+  }
 
   async function handleEndRoom() {
     await database.ref(`rooms/${roomId}`).update({
@@ -47,10 +61,9 @@ export function AdminRoom() {
     })   
   }
 
-  async function handleDeleteQuestion(questionId: string) {
-    if(window.confirm('Tem certeza que você deseja excluir esta pergunta?')){
-      await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
-    }
+  async function handleDeleteQuestion() {
+    await database.ref(`rooms/${roomId}/questions/${removeQuestionId}`).remove();
+    handleCloseRemoveQuestionModal();
   }
 
   return (
@@ -64,6 +77,12 @@ export function AdminRoom() {
           </div>
         </div>
       </Header>
+
+      <RemoveQuestionModal
+        isOpen={removeQuestionModalIsOpen}
+        onRequestClose={handleCloseRemoveQuestionModal}
+        handleDeleteQuestion={handleDeleteQuestion}
+      />
 
       <Main>
         <div className="room-title">
@@ -121,7 +140,7 @@ export function AdminRoom() {
                 <button
                   type="button"
                   className="remove-button"
-                  onClick={() => handleDeleteQuestion(question.id)}
+                  onClick={() => handleOpenRemoveQuestionModal(question.id)}
                 >
                   {/* <img src={deleteImg} alt="Remover pergunta" /> */}
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

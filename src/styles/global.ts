@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
   :root {
     --black: #29292E;
-    /* --shadow: #050206; */
+    --shadow: #050206CC;
     --purple: #835AFD;
     --danger: #E73F5D;
 
@@ -24,9 +24,9 @@ export const GlobalStyle = createGlobalStyle`
     /* --pink-light: #D67EE2; */
 
     --hover-purple: #6F4BD8;
-    /* --hover-danger: #D73754; */
+    --hover-danger: #D73754;
     /* --hover-grayMedium: #7E7E86; */
-    /* --hover-grayLight: #CECECE; */
+    --hover-grayLight: #CECECE;
   }
 
   body {

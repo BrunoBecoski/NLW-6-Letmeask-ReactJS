@@ -2,15 +2,12 @@ import { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
 import logoImg from '../assets/images/logo.svg';
-// import deleteImg from '../assets/images/delete.svg';
-// import checkImg from '../assets/images/check.svg';
-// import answerImg from '../assets/images/answer.svg';
 
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
 import { RoomCode } from '../components/RoomCode';
 import { EmptyQuestions } from '../components/EmptyQuestions';
-import { RemoveQuestionModal } from '../components/RemoveQuestionModal'; 
+import { RemoveQuestionModal, EndRoomModal } from '../components/AdminRoomModal'; 
 // import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
@@ -30,6 +27,7 @@ export function AdminRoom() {
   const { title, questions, isLoading } = useRoom(roomId);
   
   const [removeQuestionModalIsOpen, setRemoveQuestionModalIsOpen] = useState(false);
+  const [endRoomModalIsOpen, setEndRoomModalIsOpen] = useState(false);
   const [removeQuestionId, setRemoveQuestionId] = useState('');
 
   function handleOpenRemoveQuestionModal(questionId: string) {
@@ -41,7 +39,15 @@ export function AdminRoom() {
     setRemoveQuestionModalIsOpen(false);
   }
 
-  async function handleEndRoom() {
+  function handleOpenEndRoomModal() {
+    setEndRoomModalIsOpen(true);
+  }
+
+  function handleCloseEndRoomModal() {
+    setEndRoomModalIsOpen(false);
+  }
+
+  async function handleEndRoomModal() {
     await database.ref(`rooms/${roomId}`).update({
       endedAt: new Date(),
     });
@@ -73,7 +79,7 @@ export function AdminRoom() {
           <img src={logoImg} alt="Letmeask" />
           <div>
             <RoomCode code={roomId} />
-            <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>
+            <Button isOutlined onClick={handleOpenEndRoomModal}>Encerrar sala</Button>
           </div>
         </div>
       </Header>
@@ -81,8 +87,15 @@ export function AdminRoom() {
       <RemoveQuestionModal
         isOpen={removeQuestionModalIsOpen}
         onRequestClose={handleCloseRemoveQuestionModal}
-        handleDeleteQuestion={handleDeleteQuestion}
+        handleDelete={handleDeleteQuestion}
       />
+
+      <EndRoomModal
+        isOpen={endRoomModalIsOpen}
+        onRequestClose={handleCloseEndRoomModal}
+        handleDelete={handleEndRoomModal}
+      />
+
 
       <Main>
         <div className="room-title">

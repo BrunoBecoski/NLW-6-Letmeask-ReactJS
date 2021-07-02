@@ -148,7 +148,6 @@ export function AdminRoom() {
                   </>
                 )}
                 
-
                 <button
                   type="button"
                   className="remove-button"

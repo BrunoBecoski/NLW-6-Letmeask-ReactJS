@@ -12,7 +12,7 @@ import { RemoveQuestionModal, EndRoomModal } from '../components/AdminRoomModal'
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
 
-import { Header, Main } from '../styles/room';
+import { Header, Main, Spinner } from '../styles/room';
 
 type RoomParams = {
   id: string;
@@ -96,14 +96,13 @@ export function AdminRoom() {
         handleDelete={handleEndRoomModal}
       />
 
-
       <Main>
         <div className="room-title">
           <h1>Sala {title}</h1>
           { questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
         </div>
         <div className="question-list">
-          {isLoading && <h2>Carregando...</h2>}
+          {isLoading && <Spinner />}
 
           {questions.length === 0 && !isLoading && 
             <EmptyQuestions>

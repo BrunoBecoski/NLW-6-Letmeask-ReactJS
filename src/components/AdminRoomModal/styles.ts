@@ -37,7 +37,7 @@ export const Modal = styled(ReactModal)`
       font-weight: 500;
       border-radius: 8px;
       padding: 15px 32px;
-
+      cursor: pointer;
     }
 
     button:first-child {

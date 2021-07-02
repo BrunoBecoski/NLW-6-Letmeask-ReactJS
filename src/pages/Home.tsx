@@ -1,5 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { FormEvent, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
@@ -40,7 +41,16 @@ export function Home() {
     }
 
     if(roomRef.val().endedAt) {
-      alert('Room already closed');
+      // alert('Room already closed');
+      toast.error('A sala já foi fechada', { duration: 4000, 
+        position: 'top-center',
+        style: {
+          fontWeight: 500,
+          color: 'var(--danger)',
+          border: '1px solid var(--danger)',
+        }
+      }, 
+      )
       return;
     }
 
@@ -48,33 +58,37 @@ export function Home() {
   }
 
   return (
-    <Container>
-      <aside>
-        <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
-        <strong>Crie salas de Q&amp;A ao-vivo</strong>
-        <p>Tire as dúvidas da sua audiência em tempo-real</p>       
-      </aside>
-      <main>
-        <div className="main-content">
-          <img src={logoImg} alt="Letmeask" />
-          <button onClick={handleCreateRoom} className="create-room">
-            <img src={googleIconImg} alt="Logo do Google" />
-            Crie sua sala com o Google
-          </button>
-          <div className="separator">ou entre em uma sala</div>
-          <form onSubmit={handleJoinRoom}>
-            <input
-              type="text"  
-              placeholder="Digite o código da sala"       
-              onChange={event => setRoomCode(event.target.value)}
-              value={roomCode}   
-            />
-            <Button type="submit">
-              Entrar na sala
-            </Button>
-          </form>
-        </div>
-      </main>
-    </Container>
+    <>
+      <Toaster />
+
+      <Container>
+        <aside>
+          <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
+          <strong>Crie salas de Q&amp;A ao-vivo</strong>
+          <p>Tire as dúvidas da sua audiência em tempo-real</p>       
+        </aside>
+        <main>
+          <div className="main-content">
+            <img src={logoImg} alt="Letmeask" />
+            <button onClick={handleCreateRoom} className="create-room">
+              <img src={googleIconImg} alt="Logo do Google" />
+              Crie sua sala com o Google
+            </button>
+            <div className="separator">ou entre em uma sala</div>
+            <form onSubmit={handleJoinRoom}>
+              <input
+                type="text"  
+                placeholder="Digite o código da sala"       
+                onChange={event => setRoomCode(event.target.value)}
+                value={roomCode}   
+              />
+              <Button type="submit">
+                Entrar na sala
+              </Button>
+            </form>
+          </div>
+        </main>
+      </Container>
+    </>
   )
 }

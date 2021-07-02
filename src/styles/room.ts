@@ -123,3 +123,44 @@ export const Form = styled.form`
   }
 
 `;
+
+export const Spinner = styled.div`
+  margin: 50px auto;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: linear-gradient(to right, var(--purple) 10%, rgba(255, 255, 255, 0) 50%);
+  animation: rotate360 1s infinite linear;
+
+  &:before {
+    width: 50%;
+    height: 50%;
+    background: var(--purple);
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    content: '';
+  }
+
+  &:after {
+    background: var(--white-background);
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  @keyframes rotate360 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;

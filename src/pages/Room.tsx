@@ -11,7 +11,7 @@ import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
 
-import { Header, Main, Form } from '../styles/room';
+import { Header, Main, Form, Spinner } from '../styles/room';
 
 type RoomParams = {
   id: string;
@@ -97,7 +97,7 @@ export function Room() {
         </Form>
 
         <div className="question-list">
-          {isLoading && <h2>Carregando...</h2>}
+          {isLoading && <Spinner />}
 
           {questions.length === 0 && !isLoading && 
 

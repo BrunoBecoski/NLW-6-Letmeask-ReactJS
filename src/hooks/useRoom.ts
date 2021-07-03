@@ -58,7 +58,39 @@ export function useRoom(roomId: string) {
 
       setIsLoading(!roomRef);
       setTitle(databaseRoom.title);
-      setQuestions(parsedQuestion);
+
+      const questionsHighlight = parsedQuestion.filter((question) => {
+        if (question.isHighlighted && !question.isAnswered) {
+          return question;
+        }
+      })
+
+      const questionsVanilla = parsedQuestion.filter((question) => {
+        if (!question.isHighlighted && !question.isAnswered) {
+          return question;
+        }
+      })
+
+      const questionsAnswered = parsedQuestion.filter((question) => {
+        if(question.isAnswered) {
+          return question;
+        }
+      })
+
+      questionsVanilla.sort((a, b) => {
+        if (a.likeCount < b.likeCount) {
+          return 1;
+        }
+        if (a.likeCount > b.likeCount) {
+          return -1;
+        }
+
+        return 0;
+      });
+
+      const questionsFormatted = [...questionsHighlight, ...questionsVanilla, ...questionsAnswered]
+
+      setQuestions(questionsFormatted);
     })
 
     return () => {

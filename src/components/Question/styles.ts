@@ -58,11 +58,29 @@ export const Footer = styled.footer`
     gap: 16px;
   }
 
+  div.admin-like-button {
+      display: flex;
+      color: var(--gray-dark);
+      gap: 8px;
+      
+      &.admin-liked {
+        display: flex;
+        align-items: flex-end;
+        color: var(--purple);
+
+        svg path {
+          stroke: var(--purple);
+        }
+      }
+    }
+
+
   button {
     border: 0;
     background: transparent;
     cursor: pointer;
-
+    display: flex;
+    
     &.like-button {
       display: flex;
       align-items: flex-end;
@@ -81,6 +99,15 @@ export const Footer = styled.footer`
     &.like-button:hover, 
     &.check-button:hover,
     &.highlight-button:hover {
+      svg {
+        path,
+        circle {
+          stroke: var(--purple);
+        }
+      }
+    }
+
+    &.highlighted {
       svg {
         path,
         circle {

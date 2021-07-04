@@ -11,7 +11,7 @@ import { database } from '../services/firebase';
 import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
 
-import { Container } from '../styles/auth';
+import { Container, Aside, Main, Form, CreateRoom, Separator } from '../styles/auth';
 
 export function Home() {
   const history = useHistory();
@@ -71,20 +71,20 @@ export function Home() {
       <Toaster />
 
       <Container>
-        <aside>
+        <Aside>
           <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
           <strong>Crie salas de Q&amp;A ao-vivo</strong>
           <p>Tire as dúvidas da sua audiência em tempo-real</p>       
-        </aside>
-        <main>
+        </Aside>
+        <Main>
           <div className="main-content">
             <img src={logoImg} alt="Letmeask" />
-            <button onClick={handleCreateRoom} className="create-room">
+            <CreateRoom onClick={handleCreateRoom}>
               <img src={googleIconImg} alt="Logo do Google" />
               Crie sua sala com o Google
-            </button>
-            <div className="separator">ou entre em uma sala</div>
-            <form onSubmit={handleJoinRoom}>
+            </CreateRoom>
+            <Separator>ou entre em uma sala</Separator>
+            <Form onSubmit={handleJoinRoom}>
               <input
                 type="text"  
                 placeholder="Digite o código da sala"       
@@ -94,9 +94,9 @@ export function Home() {
               <Button type="submit">
                 Entrar na sala
               </Button>
-            </form>
+            </Form>
           </div>
-        </main>
+        </Main>
       </Container>
     </>
   )

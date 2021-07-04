@@ -8,7 +8,7 @@ import { Button } from '../components/Button';
 import { database } from '../services/firebase';
 import { useAuth } from '../hooks/useAuth';
 
-import { Container } from '../styles/auth';
+import { Container, Aside, Main, Form } from '../styles/auth';
 
 export function NewRoom() {
   const { user } = useAuth();
@@ -34,16 +34,16 @@ export function NewRoom() {
 
   return (
     <Container>
-       <aside>
+       <Aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo-real</p>       
-      </aside>
-      <main>
+      </Aside>
+      <Main>
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
           <h2>Criar uma nova sala</h2>
-          <form onSubmit={handleCreateRoom}>
+          <Form onSubmit={handleCreateRoom}>
             <input
               type="text"  
               placeholder="Nome da sala" 
@@ -53,12 +53,12 @@ export function NewRoom() {
             <Button type="submit">
               Criar sala
             </Button>
-          </form>
+          </Form>
           <p>
             Quer entrar em uma sala existente? <Link to="/">clique aqui</Link>
           </p>
         </div>
-      </main>
+      </Main>
     </Container>
   )
 }

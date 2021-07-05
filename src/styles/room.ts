@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
+  @media (max-width: 720px) {
+    padding: 12px;
+
+    .content > img {
+      display: none;
+    }
+  }
+  
   padding: 24px;
   border-bottom: 1px solid #e2e2e2;
 
@@ -27,6 +35,11 @@ export const Header = styled.header`
 `;
 
 export const Main = styled.main`
+  @media (max-width: 720px) {
+    margin: 0 16px;
+    margin-bottom: 16px;
+  }
+
   max-width: 800px;
   margin: 0 auto;
 

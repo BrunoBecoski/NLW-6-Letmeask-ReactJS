@@ -10,7 +10,9 @@ type RoomCodeProps = {
 
 export function RoomCode(props: RoomCodeProps) {
   function copyRoomCodeToClipboard() {
-    navigator.clipboard.writeText(props.code)
+    if(window.isSecureContext) {
+      navigator.clipboard.writeText(props.code)
+    }
 
     toast.success('Código copiado', { duration: 2000,
       position: 'top-center',

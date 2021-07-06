@@ -17,8 +17,11 @@ export const GlobalStyle = createGlobalStyle`
     /* --gray-medium: #A8A5B3; */
     --gray-light: #DBDCDD;
 
-    --white-background: #F8F8F8;
-    --white-details: #FEFEFE;
+    /* --white-background: #F8F8F8;
+    --white-details: #FEFEFE; */
+
+    --white-background: ${props => props.theme.colors.background};
+    --white-details:  ${props => props.theme.colors.details};;
 
     --pink-dark: #E559F9;
     /* --pink-light: #D67EE2; */

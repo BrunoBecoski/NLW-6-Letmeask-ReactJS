@@ -13,8 +13,8 @@ export const Aside = styled.aside`
 
   flex: 7;
 
-  background: var(--purple);
-  color: #FFF;
+  background: var(--primary);
+  color: var(--white);
 
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@ export const Aside = styled.aside`
     font-size: 24px;
     line-height: 32px;
     margin-top: 16px;
-    color: var(--gray-background);
+    color: var(--gray);
   }
 `;
 
@@ -57,8 +57,11 @@ export const Main = styled.main`
     align-items: stretch;
     text-align: center;
 
-    > img {
+    > svg {
       align-self: center;
+      .letme {
+        fill: var(--color)
+      }
     }
 
     h2 {
@@ -69,11 +72,11 @@ export const Main = styled.main`
 
     p {
       font-size: 14px;
-      color: var(--gray-dark);
+      color: var(--color_50);
       margin-top: 16px;
 
       a {
-        color:var(--pink-dark);
+        color:var(--primary);
       }
     }
   }
@@ -84,8 +87,15 @@ export const Form = styled.form`
     height: 50px;
     border-radius: 8px;
     padding: 0 16px;
-    background: #FFF;
-    border: 1px solid #a8a8b3;  
+    background: var(--color_15);
+    border: 1px solid var(--color_50);  
+
+    color: var(--color);
+
+    &:focus {
+      outline: none;
+      border: 2px solid var(--primary);
+    }
   }
 
   button {
@@ -103,7 +113,7 @@ export const CreateRoom = styled.button`
   border-radius: 8px;
   font-weight: 500;
   background: #ea4335;
-  color: #FFF;
+  color: var(--white);
 
   display: flex;
   justify-content: center;
@@ -125,7 +135,7 @@ export const CreateRoom = styled.button`
 
 export const Separator = styled.div`
   font-size: 14px;
-  color: #a8a8b3;
+  color: var(--color_50);
 
   margin: 32px 0;
   display: flex;
@@ -135,7 +145,7 @@ export const Separator = styled.div`
     content: '';
     flex: 1;
     height: 1px;
-    background: #a8a8b3;
+    background: var(--color_50);
     margin-right: 16px;
   }
 
@@ -143,7 +153,7 @@ export const Separator = styled.div`
     content: '';
     flex: 1;
     height: 1px;
-    background: #a8a8b3;
+    background: var(--color_50);
     margin-left: 16px;
   }
 `;

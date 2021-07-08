@@ -4,7 +4,7 @@ export const Container = styled.button`
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
-  background: var(--purple);
+  background: var(--primary);
   color: #FFF;
   padding: 0 32px;
 
@@ -23,17 +23,17 @@ export const Container = styled.button`
 
   &.outlined{
     background: #FFF;
-    border: 1px solid var(--purple);
-    color: var(--purple);
+    border: 1px solid var(--primary);
+    color: var(--primary);
   }
 
   &.outlined:hover {
-    border-color: var(--hover-purple);
-    color: var(--hover-purple);
+    border-color: var(--primary-hover);
+    color: var(--primary-hover);
   }
 
   &:not(:disabled):not(.outlined):hover {
-    background: var(--hover-purple);
+    background: var(--primary-hover);
   }
 
   &:disabled {

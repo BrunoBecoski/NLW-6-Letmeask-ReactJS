@@ -18,8 +18,8 @@ export function RoomCode(props: RoomCodeProps) {
       position: 'top-center',
       style: {
         fontWeight: 500,
-        color: 'var(--purple)',
-        border: '1px solid var(--purple)',
+        color: 'var(--primary)',
+        border: '1px solid var(--primary)',
       },
     });
   }

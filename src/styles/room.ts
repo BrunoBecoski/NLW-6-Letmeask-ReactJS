@@ -63,7 +63,7 @@ export const Main = styled.main`
 
     span {
       margin-left: 16px;
-      background:var(--pink-dark);
+      background:var(--primary);
       border-radius: 9999px;
       padding: 8px 16px;
       color: #FFF;
@@ -90,7 +90,7 @@ export const Form = styled.form`
     outline: none;
   
     &:focus {
-      border: 1px solid var(--purple);
+      border: 1px solid var(--primary);
     }
   }
 
@@ -120,13 +120,13 @@ export const Form = styled.form`
 
     > span {
       font-size: 14px;
-      color: var(--gray-dark);
+      color: var(--color_50);
       font-weight: 500;
 
       button {
         background: transparent;
         border: 0;
-        color: var(--purple);
+        color: var(--primary);
         text-decoration: underline;
         font-size: 14px;
         font-weight: 500;
@@ -142,20 +142,20 @@ export const Spinner = styled.div`
   width: 75px;
   height: 75px;
   border-radius: 50%;
-  background: linear-gradient(to right, var(--purple) 10%, rgba(255, 255, 255, 0) 50%);
+  background: linear-gradient(to right, var(--primary) 10%, rgba(255, 255, 255, 0) 50%);
   animation: rotate360 1s infinite linear;
 
   &:before {
     width: 50%;
     height: 50%;
-    background: var(--purple);
+    background: var(--primary);
     border-radius: 100% 0 0 0;
     position: absolute;
     content: '';
   }
 
   &:after {
-    background: var(--white-background);
+    background: var(--background);
     width: 80%;
     height: 80%;
     border-radius: 50%;

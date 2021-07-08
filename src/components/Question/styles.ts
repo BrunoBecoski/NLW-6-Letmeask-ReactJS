@@ -12,7 +12,7 @@ export const Container = styled.div`
 
   &.highlighted {
     background: #F4F0FF;
-    border: 1px solid var(--purple);
+    border: 1px solid var(--primary);
     
     footer .user-info span {
       color: var(--black);
@@ -21,7 +21,7 @@ export const Container = styled.div`
   }
   
   &.answered {
-    background:var(--gray-light);
+    background:var(--color_80);
     filter: grayscale(100%);
   }
 
@@ -48,7 +48,7 @@ export const Footer = styled.footer`
 
     span {
       margin-left: 8px;
-      color: var(--gray-dark);
+      color: var(--color_50);
       font-size: 14px;
     }
   }
@@ -60,16 +60,16 @@ export const Footer = styled.footer`
 
   div.admin-like-button {
       display: flex;
-      color: var(--gray-dark);
+      color: var(--color_50);
       gap: 8px;
       
       &.admin-liked {
         display: flex;
         align-items: flex-end;
-        color: var(--purple);
+        color: var(--primary);
 
         svg path {
-          stroke: var(--purple);
+          stroke: var(--primary);
         }
       }
     }
@@ -84,14 +84,14 @@ export const Footer = styled.footer`
     &.like-button {
       display: flex;
       align-items: flex-end;
-      color: var(--gray-dark);
+      color: var(--color_50);
       gap: 8px;
 
       &.liked {
-        color: var(--purple);
+        color: var(--primary);
 
         svg path {
-          stroke: var(--purple);
+          stroke: var(--primary);
         }
       }
     }
@@ -102,7 +102,7 @@ export const Footer = styled.footer`
       svg {
         path,
         circle {
-          stroke: var(--purple);
+          stroke: var(--primary);
         }
       }
     }
@@ -111,7 +111,7 @@ export const Footer = styled.footer`
       svg {
         path,
         circle {
-          stroke: var(--purple);
+          stroke: var(--primary);
         }
       }
     }

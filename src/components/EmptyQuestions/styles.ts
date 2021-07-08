@@ -21,7 +21,7 @@ export const Container = styled.div`
 
     p {
       font-size: 14px;
-      color: var(--gray-dark);
+      color: var(--color_50);
       margin-top: 8px;
     }
   }

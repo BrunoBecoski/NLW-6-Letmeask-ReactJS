@@ -6,7 +6,7 @@ export const Container = styled.button`
   overflow: hidden;
 
   background: #FFF;
-  border: 1px solid var(--purple);
+  border: 1px solid var(--primary);
   cursor: pointer;
 
   display: flex;
@@ -14,14 +14,14 @@ export const Container = styled.button`
   transition: border .2s;
 
   &:hover {
-    border-color: var(--hover-purple);    
+    border-color: var(--primary-hover);    
     div {
-      background: var(--hover-purple);    
+      background: var(--primary-hover);    
     }
   }
 
   div {
-    background: var(--purple);
+    background: var(--primary);
     padding: 0 12px;
     display: flex;
     justify-content: center;

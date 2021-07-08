@@ -8,8 +8,7 @@ export const Modal = styled(ReactModal)`
 
   border-radius: 8px;
   padding: 64px 110px;
-  background: var(--white-background);
-
+  background: var(--background);
 
   h1 {
     margin-bottom: 12px;
@@ -17,7 +16,6 @@ export const Modal = styled(ReactModal)`
     font-size: 24px;
   }
 
- 
   > div {
     display: flex;
     gap: 8px;
@@ -29,24 +27,22 @@ export const Modal = styled(ReactModal)`
       border-radius: 8px;
       padding: 15px 32px;
       cursor: pointer;
-    }
+      border: 2px solid transparent;
 
-    button:first-child {
-      background: var(--gray-light);
-      color: var(--gray-dark);
-    
-      &:hover {
-        background: var(--hover-grayLight);
+      &:first-child {
+        background: var(--white);
+        color: var(--black);
       }
-    }
 
-    button:last-child {
-      background: var(--black);
-      color: var(--white-details);
-
+      &:last-child {
+        background: var(--black);
+        color: var(--white);
+      }
 
       &:hover {
-        background: var(--shadow);
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        font-weight: bold;
       }
     }
   }

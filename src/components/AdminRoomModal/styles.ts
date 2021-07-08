@@ -8,7 +8,7 @@ export const Modal = styled(ReactModal)`
 
   border-radius: 8px;
   padding: 64px 110px;
-  background: var(--white-background);
+  background: var(--background);
 
   svg {
     margin-bottom: 24px;
@@ -24,7 +24,7 @@ export const Modal = styled(ReactModal)`
 
   p {
     font-size: 16px;
-    color: var(--gray-dark);
+    color: var(--color_50);
   }
 
   > div {
@@ -41,8 +41,8 @@ export const Modal = styled(ReactModal)`
     }
 
     button:first-child {
-      background: var(--gray-light);
-      color: var(--gray-dark);
+      background: var(--color_80);
+      color: var(--color_50);
     
       &:hover {
         background: var(--hover-grayLight);

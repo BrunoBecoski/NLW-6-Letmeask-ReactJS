@@ -5,18 +5,25 @@ export const Container = styled.button`
   border-radius: 8px;
   overflow: hidden;
 
-  background: #FFF;
+  background: var(--white);
+  color: var(--black);
   border: 1px solid var(--primary);
   cursor: pointer;
 
   display: flex;
 
-  transition: border .2s;
-
   &:hover {
-    border-color: var(--primary-hover);    
+    background: var(--primary); 
     div {
-      background: var(--primary-hover);    
+      background: var(--white);    
+      svg {
+        path { 
+          stroke: var(--primary);
+        }
+      }
+    }
+    span {
+      color: var(--white);
     }
   }
 

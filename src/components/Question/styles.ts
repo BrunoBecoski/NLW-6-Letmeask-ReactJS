@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background:  var(--white-details);
+  background:  var(--color_15);
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
@@ -11,22 +11,25 @@ export const Container = styled.div`
   }
 
   &.highlighted {
-    background: #F4F0FF;
+    background: var(--primary_transparent);
     border: 1px solid var(--primary);
+    p {
+      color: var(--color);
+    }
     
     footer .user-info span {
-      color: var(--black);
+      color: var(--color_80);
     }
 
   }
   
   &.answered {
-    background:var(--color_80);
+    background: var(--color_50);
     filter: grayscale(100%);
   }
 
   p {
-    color: var(--black);
+    color: var(--color_80);
   }
 `;
 
@@ -48,7 +51,7 @@ export const Footer = styled.footer`
 
     span {
       margin-left: 8px;
-      color: var(--color_50);
+      color: var(--color);
       font-size: 14px;
     }
   }

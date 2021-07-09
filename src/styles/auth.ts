@@ -76,7 +76,11 @@ export const Main = styled.main`
       margin-top: 16px;
 
       a {
-        color:var(--primary);
+        color: var(--primary);
+
+        &:hover {
+          font-weight: 500;
+        }
       }
     }
   }

@@ -4,13 +4,13 @@ export const Header = styled.header`
   @media (max-width: 720px) {
     padding: 12px;
 
-    .content > img {
+    .content > svg {
       display: none;
     }
   }
   
   padding: 24px;
-  border-bottom: 1px solid #e2e2e2;
+  border-bottom: 1px solid var(--primary);
 
   .content {
     max-width: 1120px;
@@ -19,9 +19,12 @@ export const Header = styled.header`
     justify-content: space-between;
     align-items: center;
 
-    > img {
-      max-height: 45px;
+    > svg {
+    max-height: 45px;
+    .letme {
+      fill: var(--color)
     }
+  }
 
     > div {
       display: flex;
@@ -58,7 +61,7 @@ export const Main = styled.main`
     h1 {
       font-family: 'Poppins', sans-serif;
       font-size: 24px;
-      color: var(--black);
+      color: var(--color);
     }
 
     span {
@@ -66,7 +69,7 @@ export const Main = styled.main`
       background:var(--primary);
       border-radius: 9999px;
       padding: 8px 16px;
-      color: #FFF;
+      color: var(--white);
       font-weight: 500;
       font-size: 14px;
     }
@@ -83,14 +86,16 @@ export const Form = styled.form`
     border: 0;
     padding: 16px;
     border-radius: 8px;
-    background: var(--white-details);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    background: var(--color_15);
+    color: var(--color);
+    box-shadow: 0 2px 12px var(--primary_transparent);
+    border: 2px solid var(--color_50);  
     resize: vertical;
     min-height: 130px;
     outline: none;
   
     &:focus {
-      border: 1px solid var(--primary);
+      border: 2px solid var(--primary);
     }
   }
 
@@ -112,7 +117,7 @@ export const Form = styled.form`
 
       span {
         margin-left: 8px;
-        color: var(--black);
+        color: var(--color);
         font-weight: 500;
         font-size: 14px;
       }
@@ -129,8 +134,11 @@ export const Form = styled.form`
         color: var(--primary);
         text-decoration: underline;
         font-size: 14px;
-        font-weight: 500;
         cursor: pointer;
+
+        &:hover {
+          font-weight: 500;
+        }
       } 
     }
   }

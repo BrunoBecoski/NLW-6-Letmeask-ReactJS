@@ -42,23 +42,20 @@ export const Modal = styled(ReactModal)`
 
     button:first-child {
       background: var(--color_80);
-      color: var(--color_50);
+      color: var(--color_15);
     
       &:hover {
-        background: var(--hover-grayLight);
+        background: var(--color_50);
       }
     }
 
     button:last-child {
       background: var(--danger);
-      color: var(--white-details);
-
+      color: var(--white);
 
       &:hover {
         background: var(--hover-danger);
       }
     }
-
   }
-
 `; 

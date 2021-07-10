@@ -92,13 +92,15 @@ export const Form = styled.form`
     border-radius: 8px;
     padding: 0 16px;
     background: var(--color_15);
-    border: 1px solid var(--color_50);  
+    border: 2px solid var(--color_50); 
 
     color: var(--color);
+    box-shadow: 1px 1px 3px var(--color);
 
     &:focus {
       outline: none;
       border: 2px solid var(--primary);
+      box-shadow: 1px 1px 5px var(--primary);
     }
   }
 
@@ -108,32 +110,6 @@ export const Form = styled.form`
 
   button, input { 
     width: 100%;
-  }
-`;
-
-export const CreateRoom = styled.button`
-  margin-top: 64px;
-  height: 50px;
-  border-radius: 8px;
-  font-weight: 500;
-  background: #ea4335;
-  color: var(--white);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  cursor: pointer;
-  border: 0;
-
-  transition: filter 0.2s;
-
-  img {
-    margin-right: 8px;
-  }
-
-  &:hover {
-    filter: brightness(0.9);
   }
 `;
 

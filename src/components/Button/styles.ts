@@ -13,9 +13,10 @@ export const Container = styled.button`
   align-items: center;
 
   cursor: pointer;
-  border: 1px solid var(--primary);
+  border: 2px solid var(--primary);
+  box-shadow: 1px 1px 5px var(--color_50);
 
-  transition: background 1s, color 1s;
+  transition: color .3s, background .3s, box-shadow .3s;
 
   img {
     margin-right: 8px;
@@ -29,11 +30,15 @@ export const Container = styled.button`
   &.outlined:hover {
     color: var(--white);
     background: var(--primary);
+  
+    box-shadow: 1px 1px 10px var(--primary);
   }
 
   &:not(:disabled):not(.outlined):hover {
     color: var(--primary);
     background: var(--white);
+  
+    box-shadow: 1px 1px 10px var(--primary);
   }
 
   &:disabled {

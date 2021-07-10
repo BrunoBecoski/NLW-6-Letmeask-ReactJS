@@ -23,9 +23,9 @@ export const GlobalStyle = createGlobalStyle`
     --shadow: #050206CC;
     --danger: #E73F5D; 
     --hover-danger: #D73754;
+    --blue_google: #4285F4;
 
     --background: ${props => props.theme.colors.background};
-    --white-details:  ${props => props.theme.colors.details};;
 
     --primary: #835AFD;
     --primary-hover: #6F4BD8;

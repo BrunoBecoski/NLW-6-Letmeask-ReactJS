@@ -3,16 +3,17 @@ import styled from 'styled-components';
 export const Container = styled.div`
   background:  var(--color_15);
   border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  box-shadow: 1px 1px 3px var(--color);
   padding: 24px;
 
   & + & {
-    margin-top: 8px;
+    margin-top: 12px;
   }
 
   &.highlighted {
     background: var(--primary_transparent);
     border: 1px solid var(--primary);
+    box-shadow: 1px 1px 5px var(--primary);
     p {
       color: var(--color);
     }
@@ -25,7 +26,18 @@ export const Container = styled.div`
   
   &.answered {
     background: var(--color_50);
-    filter: grayscale(100%);
+
+    box-shadow: none;
+
+    footer {
+      .user-info {
+        filter: grayscale(100%);
+      }
+
+      button svg path{
+        stroke: var(--color); 
+      }
+    }
   }
 
   p {

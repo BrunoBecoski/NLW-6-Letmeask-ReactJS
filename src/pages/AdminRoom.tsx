@@ -140,6 +140,8 @@ export function AdminRoom() {
           }
             
           {questions.map((question) => {
+
+            console.log(question)
             return (
               <Question
                 key={question.id} 
@@ -151,7 +153,7 @@ export function AdminRoom() {
                 {!question.isAnswered && (    
                   <>             
                     <div
-                      className={`admin-like-button ${question.likeId ? 'admin-liked' : ''}`}
+                      className={`admin-like-button ${question.likeCount ? 'admin-liked' : ''}`}
                     >
                       {question.likeCount > 0 && <span>{question.likeCount}</span>}
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

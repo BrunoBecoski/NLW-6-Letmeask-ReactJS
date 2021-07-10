@@ -88,7 +88,7 @@ export const Form = styled.form`
     border-radius: 8px;
     background: var(--color_15);
     color: var(--color);
-    box-shadow: 0 2px 12px var(--primary_transparent);
+    box-shadow: 1px 1px 3px var(--color);
     border: 2px solid var(--color_50);  
     resize: vertical;
     min-height: 130px;
@@ -96,6 +96,7 @@ export const Form = styled.form`
   
     &:focus {
       border: 2px solid var(--primary);
+      box-shadow: 1px 1px 5px var(--primary);
     }
   }
 

@@ -3,15 +3,14 @@ import { FormEvent, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
 import illustrationImg from '../assets/images/illustration.svg';
-// import logoImg from '../assets/images/logo.svg';
-import googleIconImg from '../assets/images/google-icon.svg';
 
 import { database } from '../services/firebase';
 
 import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
 
-import { Container, Aside, Main, Form, CreateRoom, Separator } from '../styles/auth';
+import { Container, Aside, Main, Form, Separator } from '../styles/auth';
+import { ButtonGoogle } from '../components/ButtonGoogle';
 
 export function Home() {
   const history = useHistory();
@@ -108,10 +107,7 @@ export function Home() {
               </linearGradient>
               </defs>
             </svg>
-            <CreateRoom onClick={handleCreateRoom}>
-              <img src={googleIconImg} alt="Logo do Google" />
-              Crie sua sala com o Google
-            </CreateRoom>
+            <ButtonGoogle handleCreateRoom={handleCreateRoom} />
             <Separator>ou entre em uma sala</Separator>
             <Form onSubmit={handleJoinRoom}>
               <input

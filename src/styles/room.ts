@@ -4,13 +4,19 @@ export const Header = styled.header`
   @media (max-width: 720px) {
     padding: 12px;
 
-    .content > svg {
-      display: none;
+    .content  {
+      > svg {
+        display: none;
+      }
+      > div {
+        width: 100%;
+        justify-content: space-between;
+      }
     }
   }
   
   padding: 24px;
-  border-bottom: 1px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
 
   .content {
     max-width: 1120px;
@@ -20,11 +26,11 @@ export const Header = styled.header`
     align-items: center;
 
     > svg {
-    max-height: 45px;
-    .letme {
-      fill: var(--color)
+      max-height: 45px;
+      .letme {
+        fill: var(--color)
+      }
     }
-  }
 
     > div {
       display: flex;
@@ -86,17 +92,15 @@ export const Form = styled.form`
     border: 0;
     padding: 16px;
     border-radius: 8px;
-    background: var(--color_15);
-    color: var(--color);
-    box-shadow: 1px 1px 3px var(--color);
+    color: var(--black);
+    background: var(--gray);
     border: 2px solid var(--color_50);  
     resize: vertical;
     min-height: 130px;
     outline: none;
   
     &:focus {
-      border: 2px solid var(--primary);
-      box-shadow: 1px 1px 5px var(--primary);
+      border: 3px solid var(--primary);
     }
   }
 

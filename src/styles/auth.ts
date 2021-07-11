@@ -91,16 +91,15 @@ export const Form = styled.form`
     height: 50px;
     border-radius: 8px;
     padding: 0 16px;
-    background: var(--color_15);
+
+    color: var(--black);
+    background: var(--gray);
     border: 2px solid var(--color_50); 
 
-    color: var(--color);
-    box-shadow: 1px 1px 3px var(--color);
 
     &:focus {
       outline: none;
-      border: 2px solid var(--primary);
-      box-shadow: 1px 1px 5px var(--primary);
+      border: 3px solid var(--primary);
     }
   }
 

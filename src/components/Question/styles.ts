@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   background:  var(--color_15);
   border-radius: 8px;
-  box-shadow: 1px 1px 3px var(--color);
+  box-shadow: 1px 1px 3px var(--color_50);
   padding: 24px;
 
   & + & {
@@ -13,7 +13,7 @@ export const Container = styled.div`
   &.highlighted {
     background: var(--primary_transparent);
     border: 1px solid var(--primary);
-    box-shadow: 1px 1px 5px var(--primary);
+    box-shadow: 1px 1px 10px var(--primary);
     p {
       color: var(--color);
     }

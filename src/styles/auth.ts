@@ -92,8 +92,8 @@ export const Form = styled.form`
     border-radius: 8px;
     padding: 0 16px;
 
-    color: var(--black);
-    background: var(--gray);
+    color: var(--color);
+    background: var(--color_15);
     border: 2px solid var(--color_50); 
 
 

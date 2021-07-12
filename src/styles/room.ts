@@ -14,7 +14,7 @@ export const Header = styled.header`
       }
     }
   }
-  
+    
   padding: 24px;
   border-bottom: 2px solid var(--primary);
 
@@ -92,8 +92,8 @@ export const Form = styled.form`
     border: 0;
     padding: 16px;
     border-radius: 8px;
-    color: var(--black);
-    background: var(--gray);
+    color: var(--color);
+    background: var(--color_15);
     border: 2px solid var(--color_50);  
     resize: vertical;
     min-height: 130px;

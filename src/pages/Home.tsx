@@ -41,7 +41,7 @@ export function Home() {
         style: {
           fontWeight: 500,
           color: 'var(--danger)',
-          border: '1px solid var(--danger)',
+          border: '2px solid var(--danger)',
         }
       }, 
       )
@@ -55,7 +55,7 @@ export function Home() {
         style: {
           fontWeight: 500,
           color: 'var(--danger)',
-          border: '1px solid var(--danger)',
+          border: '2px solid var(--danger)',
         }
       }, 
       )

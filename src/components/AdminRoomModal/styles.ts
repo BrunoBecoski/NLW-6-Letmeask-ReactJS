@@ -54,7 +54,7 @@ export const Modal = styled(ReactModal)`
       color: var(--white);
 
       &:hover {
-        background: var(--hover-danger);
+        background: var(--hover_danger);
       }
     }
   }

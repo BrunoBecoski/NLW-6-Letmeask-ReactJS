@@ -74,27 +74,29 @@ export const Footer = styled.footer`
   }
 
   div.admin-like-button {
+    display: flex;
+    color: var(--color_50);
+    gap: 8px;
+    
+    &.admin-liked {
       display: flex;
-      color: var(--color_50);
-      gap: 8px;
-      
-      &.admin-liked {
-        display: flex;
-        align-items: flex-end;
-        color: var(--primary);
+      align-items: flex-end;
+      font-weight: 500;
+      color: var(--primary);
 
-        svg path {
-          stroke: var(--primary);
-        }
+      svg path {
+        stroke-width: 2px;
+        stroke: var(--primary);
       }
     }
-
+  }
 
   button {
     border: 0;
     background: transparent;
     cursor: pointer;
     display: flex;
+
     
     &.like-button {
       display: flex;
@@ -103,9 +105,11 @@ export const Footer = styled.footer`
       gap: 8px;
 
       &.liked {
+        font-weight: 500;
         color: var(--primary);
 
         svg path {
+          stroke-width: 2px;
           stroke: var(--primary);
         }
       }
@@ -117,6 +121,7 @@ export const Footer = styled.footer`
       svg {
         path,
         circle {
+          stroke-width: 2px;
           stroke: var(--primary);
         }
       }
@@ -126,6 +131,7 @@ export const Footer = styled.footer`
       svg {
         path,
         circle {
+          stroke-width: 2px;
           stroke: var(--primary);
         }
       }
@@ -134,6 +140,7 @@ export const Footer = styled.footer`
     &.remove-button:hover {
       svg {
         path {
+          stroke-width: 2px;
           stroke: var(--danger);
         }
       }

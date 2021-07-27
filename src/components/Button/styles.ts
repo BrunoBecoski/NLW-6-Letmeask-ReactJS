@@ -23,6 +23,7 @@ export const Container = styled.button`
   }
 
   &.outlined {
+    box-shadow: 1px 1px 3px var(--black);
     color: var(--primary);
     background: #FFF;
   }
@@ -30,8 +31,8 @@ export const Container = styled.button`
   &.outlined:hover {
     color: var(--white);
     background: var(--primary);
-  
-    box-shadow: 1px 1px 10px var(--primary);
+    border-color: var(--white);
+    box-shadow: 1px 1px 5px var(--white);
   }
 
   &:not(:disabled):not(.outlined):hover {

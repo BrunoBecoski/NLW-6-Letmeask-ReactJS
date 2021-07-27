@@ -5,7 +5,7 @@ export const Header = styled.header`
     padding: 12px;
 
     .content  {
-      > svg {
+      > img {
         display: none;
       }
       > div {
@@ -14,6 +14,8 @@ export const Header = styled.header`
       }
     }
   }
+
+  background: var(--primary);
     
   padding: 24px;
   border-bottom: 2px solid var(--primary);
@@ -25,11 +27,8 @@ export const Header = styled.header`
     justify-content: space-between;
     align-items: center;
 
-    > svg {
+    > img {
       max-height: 45px;
-      .letme {
-        fill: var(--color)
-      }
     }
 
     > div {
@@ -51,7 +50,6 @@ export const Main = styled.main`
 
   max-width: 800px;
   margin: 0 auto;
-
   margin-bottom: 50px;
 
   h2 {

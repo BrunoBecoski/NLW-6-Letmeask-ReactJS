@@ -5,11 +5,11 @@ export const Container = styled.button`
   border-radius: 8px;
   overflow: hidden;
 
-  background: var(--white);
-  color: var(--black);
-  border: 1px solid var(--primary);
   cursor: pointer;
-  box-shadow: 1px 1px 5px var(--color_50);
+  color: var(--black);
+  background: var(--white);
+  border: 2px solid var(--primary);
+  box-shadow: 1px 1px 3px var(--black);
 
   display: flex;
 
@@ -20,12 +20,14 @@ export const Container = styled.button`
   }
 
   &:hover {
-    box-shadow: 1px 1px 10px var(--primary);
-
     background: var(--primary); 
+    border-color: var(--white);
+    box-shadow: 1px 1px 5px var(--white);
+    
     div {
       background: var(--white);    
       svg path { 
+        stroke-width: 2px;
         stroke: var(--primary);
       }
     }
@@ -35,20 +37,20 @@ export const Container = styled.button`
   }
 
   div {
-    background: var(--primary);
+    height: 100%;
     padding: 0 12px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100%;
+    justify-content: center;
+    background: var(--primary);
   }
 
   span {
+    width: auto;
+    flex: 1;
     display: block;
     align-self: center;
-    flex: 1;
     padding: 0 16px 0 12px;
-    width: auto;
     font-size: 14px;
     font-weight: 500;
   }

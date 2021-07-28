@@ -97,7 +97,6 @@ export const Footer = styled.footer`
     cursor: pointer;
     display: flex;
 
-    
     &.like-button {
       display: flex;
       align-items: flex-end;

@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
     --shadow: #050206CC;
 
     --danger: #E73F5D; 
-    --hover_danger: #D73754;
+    --danger_hover: #D73754;
     
     --blue_google: #4285F4;
 

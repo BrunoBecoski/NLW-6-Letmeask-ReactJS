@@ -13,14 +13,16 @@ export const Container = styled.button`
   align-items: center;
 
   cursor: pointer;
-  border: 2px solid var(--primary);
-  box-shadow: 1px 1px 5px var(--color_50);
+  border: 3px solid var(--primary);
+  box-shadow: 1px 1px 3px var(--color_50);
 
-  transition: color .3s, background .3s, box-shadow .3s;
+  transition: all .3s;
 
   img {
     margin-right: 8px;
   }
+
+
 
   &.outlined {
     box-shadow: 1px 1px 3px var(--black);
@@ -36,10 +38,11 @@ export const Container = styled.button`
   }
 
   &:not(:disabled):not(.outlined):hover {
-    color: var(--primary);
-    background: var(--white);
-  
+    border-color: var(--white);
+    font-weight: bold;
     box-shadow: 1px 1px 10px var(--primary);
+    letter-spacing: 1px;
+    padding: 0 24px;
   }
 
   &:disabled {

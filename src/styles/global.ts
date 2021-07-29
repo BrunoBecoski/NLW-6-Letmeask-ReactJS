@@ -20,8 +20,11 @@ export const GlobalStyle = createGlobalStyle`
 
     --background: ${props => props.theme.colors.background};
 
-    --primary: #835AFD;
-    --primary_transparent: #835AFD40; 
+    /* --primary: #835AFD;
+    --primary_transparent: #835AFD40;      */
+    
+    --primary:  ${props => props.theme.colors.primary ? props.theme.colors.primary : '#835AFD'};
+    --primary_transparent: ${props => props.theme.colors.primary_transparent ? props.theme.colors.primary_transparent : '#835AFD40'};
 
     /*     
       100% — FF

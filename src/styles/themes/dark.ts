@@ -8,7 +8,9 @@ export default {
     color: '#FFFFFF;', // 100%
     color_80: '#cccccc', // 80%
     color_50: '#7f7f7f', // 50%  
-    color_15: '#262626' // 15%  
+    color_15: '#262626', // 15%  
 
+    primary: '',
+    primary_transparent: '', // 25%
   }
 }

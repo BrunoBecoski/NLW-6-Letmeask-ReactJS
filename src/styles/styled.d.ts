@@ -11,6 +11,9 @@ declare module 'styled-components' {
       color_80: string,
       color_50: string,
       color_15: string,
+
+      primary?: string;
+      primary_transparent?: string;
     }
   }
 }

@@ -19,12 +19,7 @@ export const Aside = styled.aside`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   padding: 120px 80px;
-
-  img {
-    max-width: 320px;
-  }
 
   strong {
     font: 700 36px 'Poppins', sans-serif;
@@ -59,9 +54,6 @@ export const Main = styled.main`
 
     > svg {
       align-self: center;
-      .letme {
-        fill: var(--color)
-      }
     }
 
     h2 {

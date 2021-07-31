@@ -60,8 +60,8 @@ export function ModalTheme({
               onChange={() => handleSetPrimaryColor('red')}
               checked={primaryColor === 'red' ? true : false}
             />
-            <span className="checkmark"/>
-            Red
+              <span className="checkmark"/>
+              Red
           </label>
           <label className="green">
             <input 

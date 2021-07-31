@@ -80,20 +80,16 @@ export const Modal = styled(ReactModal)`
 `; 
 
 export const Color = styled.div`
-  /* display: flex; */
-  /* justify-content: center; */
-
-   
+  
   label {
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
-    user-select: none;
+    font-size: 24px;
+    color: var(--color);
 
-    
   
+    
     input {
       position: absolute;
       opacity: 0;
@@ -145,8 +141,8 @@ export const Color = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    height: 25px;
-    width: 25px;
+    height: 26px;
+    width: 26px;
     background-color: #eee;
     border-radius: 50%;
   }
@@ -154,7 +150,7 @@ export const Color = styled.div`
   .checkmark:after {
     content: "";
     position: absolute;
-    display: none;
+    /* display: none; */
   }
 
   label input:checked ~ .checkmark:after {
@@ -162,77 +158,27 @@ export const Color = styled.div`
   }
 
   label .checkmark:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
+    top: -7px;
+    left: -7px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
+    border: 5px solid transparent;
+  } 
+
+  label.purple .checkmark:after {
+    border-color: #835AFD;
+  } 
+
+  label.red .checkmark:after {
+    border-color: #CD5C5C;
+  } 
+
+  label.green .checkmark:after {
+    border-color: #2E8B57;
+  } 
+
+  label.blue .checkmark:after {
+    border-color: #4169E1;
   } 
 `; 
-
-// label {
-//   position: relative;
-//   padding-left: 35px;
-//   margin-bottom: 12px;
-//   cursor: pointer;
-//   font-size: 22px;
-//   user-select: none;
-// }
-
-// label input {
-//   position: absolute;
-//   opacity: 0;
-//   cursor: pointer;
-// }
-
-// .checkmark {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   height: 25px;
-//   width: 25px;
-//   background-color: #eee;
-//   border-radius: 50%;
-// }
-
-// label:hover input ~ .checkmark {
-//   background-color: #ccc;
-// }
-
-// label input:checked ~ .checkmark {
-//   color: yellow;
-// }
-
-// label.purple input:checked ~ .checkmark {
-//   background-color: #835AFD;
-// }
-
-// label.red input:checked ~ .checkmark {
-//   background-color: #CD5C5C;
-// }
-
-// label.green input:checked ~ .checkmark {
-//   background-color: #2E8B57;
-// }
-
-// label.blue input:checked ~ .checkmark {
-//   background-color: #4169E1;
-// }
-
-// .checkmark:after {
-//   content: "";
-//   position: absolute;
-//   display: none;
-// }
-
-// label input:checked ~ .checkmark:after {
-//   display: block;
-// }
-
-// label .checkmark:after {
-//   top: 9px;
-//   left: 9px;
-//   width: 8px;
-//   height: 8px;
-//   border-radius: 50%;
-// } 

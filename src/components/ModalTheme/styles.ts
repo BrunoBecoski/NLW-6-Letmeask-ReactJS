@@ -80,77 +80,49 @@ export const Modal = styled(ReactModal)`
 `; 
 
 export const Color = styled.div`
+  width: 75%;
+  height: 30px;
+  justify-content: space-evenly;
   
   label {
     position: relative;
-    padding-left: 35px;
     cursor: pointer;
-    font-size: 24px;
-    color: var(--color);
-
-  
     
     input {
       position: absolute;
       opacity: 0;
       cursor: pointer;
     }
-
-    &:hover.purple {
-      color: #835AFD;
-    }
-
-    &:hover.red {
-      color: #CD5C5C;
-    }
-
-    &:hover.green {
-      color: #2E8B57;
-    }
-
-    &:hover {
-      color: #4169E1;
-    }
-  }
-
-  label:hover input ~ .checkmark {
-    background-color: #ccc;
-  }
-
-  label.purple input:checked ~ .checkmark,
-  label:hover.purple .checkmark {
-    background-color: #835AFD;
-  }
-
-  label.red input:checked ~ .checkmark,
-  label:hover.red .checkmark {
-    background-color: #CD5C5C;
-  }
-
-  label.green input:checked ~ .checkmark,
-  label:hover.green .checkmark {
-    background-color: #2E8B57;
-  }
-
-  label.blue input:checked ~ .checkmark,
-  label:hover.blue .checkmark {
-    background-color: #4169E1;
   }
 
   .checkmark {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 26px;
-    width: 26px;
-    background-color: #eee;
+    left: -10px;
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
   }
 
   .checkmark:after {
     content: "";
     position: absolute;
-    /* display: none; */
+    display: none;
+  }
+
+  label.purple .checkmark {
+    background-color: #835AFD;
+  }
+
+  label.red .checkmark {
+    background-color: #CD5C5C;
+  }
+
+  label.green .checkmark {
+    background-color: #2E8B57;
+  }
+
+  label.blue .checkmark {
+    background-color: #4169E1;
   }
 
   label input:checked ~ .checkmark:after {
@@ -158,27 +130,11 @@ export const Color = styled.div`
   }
 
   label .checkmark:after {
-    top: -7px;
-    left: -7px;
-    width: 30px;
-    height: 30px;
+    top: -6px;
+    left: -6px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
-    border: 5px solid transparent;
-  } 
-
-  label.purple .checkmark:after {
-    border-color: #835AFD;
-  } 
-
-  label.red .checkmark:after {
-    border-color: #CD5C5C;
-  } 
-
-  label.green .checkmark:after {
-    border-color: #2E8B57;
-  } 
-
-  label.blue .checkmark:after {
-    border-color: #4169E1;
+    border: 3px solid var(--primary);
   } 
 `; 

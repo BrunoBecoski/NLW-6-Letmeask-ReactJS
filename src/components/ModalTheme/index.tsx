@@ -50,9 +50,9 @@ export function ModalTheme({
               onChange={() => handleSetPrimaryColor('purple')}
               checked={primaryColor === 'purple' ? true : false}
             />
-              <span className="checkmark"/>
-              Purple
+            <span className="checkmark"/>
           </label>
+
           <label className="red">
             <input 
               name="primary_color"
@@ -60,9 +60,9 @@ export function ModalTheme({
               onChange={() => handleSetPrimaryColor('red')}
               checked={primaryColor === 'red' ? true : false}
             />
-              <span className="checkmark"/>
-              Red
+            <span className="checkmark"/>
           </label>
+
           <label className="green">
             <input 
               name="primary_color"
@@ -71,8 +71,8 @@ export function ModalTheme({
               checked={primaryColor === 'green' ? true : false}
             />
             <span className="checkmark"/>
-            Green
           </label>
+
           <label className="blue"> 
             <input 
               name="primary_color"
@@ -81,9 +81,7 @@ export function ModalTheme({
               checked={primaryColor === 'blue' ? true : false}
             />
             <span className="checkmark"/>
-            Blue
           </label>
-
         </Color>
       </div>
     </Modal>

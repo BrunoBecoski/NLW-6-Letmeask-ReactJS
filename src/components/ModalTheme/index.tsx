@@ -1,8 +1,9 @@
-import { Modal, Color } from './styles';
+import { Modal, ThemeSelector, ColorSelector } from './styles';
 
 type ModalThemeProps = {
   isOpen: boolean;
   onRequestClose: () => void;
+  isDefaultTheme: boolean;
   setIsDefaultTheme: (is: boolean) => void;
   primaryColor: string;
   handleSetPrimaryColor: (color: 'purple' | 'red' | 'green' | 'blue') => void;
@@ -10,7 +11,8 @@ type ModalThemeProps = {
 
 export function ModalTheme({ 
   isOpen, 
-  onRequestClose, 
+  onRequestClose,
+  isDefaultTheme, 
   setIsDefaultTheme,
   primaryColor,
   handleSetPrimaryColor
@@ -29,20 +31,22 @@ export function ModalTheme({
         }
       }}
     >
-      <button onClick={onRequestClose}>
+      <button className="closeButton" onClick={onRequestClose}>
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M29.66 18.3398L18.34 29.6598" stroke="var(--color_50)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M29.66 29.6598L18.34 18.3398" stroke="var(--color_50)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </button>
-      <div>
+
+      <div className="content">
         <h1>Escolha o tema da aplicação</h1>
-        <div>
+
+        <ThemeSelector isDefaultTheme={isDefaultTheme}> 
           <button onClick={() => setIsDefaultTheme(true)}>Claro</button>
           <button onClick={() => setIsDefaultTheme(false)}>Escuro</button>
-        </div>
+        </ThemeSelector>
 
-        <Color>
+        <ColorSelector>
           <label className="purple">
             <input 
               name="primary_color"
@@ -82,7 +86,7 @@ export function ModalTheme({
             />
             <span className="checkmark"/>
           </label>
-        </Color>
+        </ColorSelector>
       </div>
     </Modal>
   )

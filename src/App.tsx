@@ -94,6 +94,7 @@ function App() {
       <ModalTheme 
         isOpen={themeModalIsOpen}
         onRequestClose={handleCloseThemeModal}
+        isDefaultTheme={isDefaultTheme}
         setIsDefaultTheme={setIsDefaultTheme}
         primaryColor={primaryColor}
         handleSetPrimaryColor={handleSetPrimaryColor}

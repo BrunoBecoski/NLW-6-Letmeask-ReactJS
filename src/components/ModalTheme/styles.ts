@@ -9,7 +9,7 @@ export const Modal = styled(ReactModal)`
   flex-direction: column;
   align-items: flex-end;
 
-  > button {
+  .closeButton {
     margin-top: 10px;
     margin-right: 10px;
     cursor: pointer;
@@ -29,64 +29,74 @@ export const Modal = styled(ReactModal)`
     &:hover {
       path {
         stroke: var(--danger_hover);
+        stroke-width: 8px;
       }
-      border-color: var(--danger_hover);
+      border: 3px solid var(--danger_hover);
     }
   }
 
-  > div {
+  .content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 24px 110px 64px;
+    padding: 24px 100px 48px;
 
     h1 {
-      margin-bottom: 12px;
       font-family: 'Poppins', sans-serif;
       font-size: 24px;
-    }
-
-    > div {
-      display: flex;
-      gap: 8px;
-      margin-top: 40px;
-
-      button {
-        border: none;
-        font-weight: 500;
-        border-radius: 8px;
-        padding: 15px 32px;
-        cursor: pointer;
-        border: 2px solid transparent;
-
-        &:first-child {
-          background: var(--white);
-          color: var(--black);
-        }
-
-        &:last-child {
-          background: var(--black);
-          color: var(--white);
-        }
-
-        &:hover {
-          border: 2px solid var(--primary);
-          color: var(--primary);
-          font-weight: bold;
-        }
-      }
     }
   }
 `; 
 
-export const Color = styled.div`
+type ThemeSelectorProps = {
+  isDefaultTheme: boolean;
+ }
+
+export const ThemeSelector = styled.div<ThemeSelectorProps>`
+  display: flex;
+  gap: 8px;
+  margin-top: 40px;
+
+  button {
+    border: none;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 15px 32px;
+    cursor: pointer;
+
+    &:first-child {
+      background: var(--white);
+      color: ${props => props.isDefaultTheme ? 'var(--primary)' : 'var(--black)'};
+      border: 3px solid ${props => props.isDefaultTheme ? 'var(--primary)' : ''};
+      font-weight: ${props => props.isDefaultTheme ? 'bold' : ''};
+    }
+    
+    &:last-child {
+      background: var(--black);
+      color: ${props => props.isDefaultTheme ? 'var(--white)' : 'var(--primary)'};
+      border: 3px solid ${props => props.isDefaultTheme ? '' : 'var(--primary)'};
+      font-weight: ${props => props.isDefaultTheme ? '' : 'bold'};
+    }
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+`;
+
+export const ColorSelector = styled.div`
+  margin-top: 24px;
   width: 75%;
-  height: 30px;
+  height: 42px;
+
+  display: flex;
   justify-content: space-evenly;
-  
+
   label {
     position: relative;
     cursor: pointer;
+    width: 40px;
+    height: 40px;
     
     input {
       position: absolute;
@@ -97,9 +107,9 @@ export const Color = styled.div`
 
   .checkmark {
     position: absolute;
-    left: -10px;
-    height: 20px;
-    width: 20px;
+    margin: 4px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
   }
 
@@ -132,9 +142,9 @@ export const Color = styled.div`
   label .checkmark:after {
     top: -6px;
     left: -6px;
-    width: 26px;
-    height: 26px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
-    border: 3px solid var(--primary);
+    border: 4px solid var(--primary);
   } 
 `; 

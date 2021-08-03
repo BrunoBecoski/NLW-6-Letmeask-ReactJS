@@ -24,7 +24,7 @@ import blue from './styles/themes/blue';
 
 function App() {
   const [themeModalIsOpen, setThemeModalIsOpen] = useState(false);
-  const [isDefaultTheme, setIsDefaultTheme] = useState(true);
+  const [themeColor, setThemeColor] = useState<'light' | 'dark' >('light');
   const [primaryColor, setPrimaryColor] = useState<'purple' | 'red' | 'green' | 'blue'>('purple');  
     
   function handleOpenThemeModal() {
@@ -35,12 +35,25 @@ function App() {
     setThemeModalIsOpen(false);
   }
 
+  function handleSetThemeColor(color: 'light' | 'dark') {
+    setThemeColor(color);
+  }
+
   function handleSetPrimaryColor(color: 'purple' | 'red' | 'green' | 'blue') {
     setPrimaryColor(color);
   }
 
 
-  const title = isDefaultTheme ? light : dark; 
+
+  let theme = light;
+
+
+  if(themeColor === 'light') {
+    theme = light;
+  }
+  if(themeColor === 'dark') {
+    theme = dark;
+  }
 
   let primary =  purple;
 
@@ -61,15 +74,15 @@ function App() {
   }
 
  const newTheme = {
-  title: `${title.title}_${primary.title}`,
+  title: `${theme.title}_${primary.title}`,
 
   colors: {
-    background: title.colors.background,
-    color: title.colors.color,
-    color_15: title.colors.color_15,
-    color_50: title.colors.color_50,
-    color_80: title.colors.color_80,
-    details: title.colors.details,
+    background: theme.colors.background,
+    color: theme.colors.color,
+    color_15: theme.colors.color_15,
+    color_50: theme.colors.color_50,
+    color_80: theme.colors.color_80,
+    details: theme.colors.details,
     primary: primary.colors.primary,
     primary_transparent: primary.colors.primary_transparent,
   }
@@ -94,8 +107,8 @@ function App() {
       <ModalTheme 
         isOpen={themeModalIsOpen}
         onRequestClose={handleCloseThemeModal}
-        isDefaultTheme={isDefaultTheme}
-        setIsDefaultTheme={setIsDefaultTheme}
+        themeColor={themeColor}
+        handleSetThemeColor={handleSetThemeColor}
         primaryColor={primaryColor}
         handleSetPrimaryColor={handleSetPrimaryColor}
       />

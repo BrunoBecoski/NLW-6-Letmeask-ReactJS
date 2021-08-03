@@ -48,40 +48,41 @@ export const Modal = styled(ReactModal)`
   }
 `; 
 
-type ThemeSelectorProps = {
-  isDefaultTheme: boolean;
- }
-
-export const ThemeSelector = styled.div<ThemeSelectorProps>`
+export const ThemeSelector = styled.div`
   display: flex;
   gap: 8px;
   margin-top: 40px;
 
-  button {
-    border: none;
-    font-weight: 500;
+  label {
     border-radius: 8px;
     padding: 15px 32px;
     cursor: pointer;
+    border: 3px solid var(--background);
 
-    &:first-child {
+    &.light {
       background: var(--white);
-      color: ${props => props.isDefaultTheme ? 'var(--primary)' : 'var(--black)'};
-      border: 3px solid ${props => props.isDefaultTheme ? 'var(--primary)' : ''};
-      font-weight: ${props => props.isDefaultTheme ? 'bold' : ''};
+      color: var(--black);
     }
     
-    &:last-child {
+    &.dark {
       background: var(--black);
-      color: ${props => props.isDefaultTheme ? 'var(--white)' : 'var(--primary)'};
-      border: 3px solid ${props => props.isDefaultTheme ? '' : 'var(--primary)'};
-      font-weight: ${props => props.isDefaultTheme ? '' : 'bold'};
+      color: var(--white);
+    } 
+    
+    & input:checked ~ .dark {
+      
+      border-color: red;
+      color: yellow;
+      font-weight: bold;
     }
 
     &:hover {
       color: var(--primary);
+      border: 3px solid var(--primary);
     }
   }
+  
+  
 `;
 
 export const ColorSelector = styled.div`

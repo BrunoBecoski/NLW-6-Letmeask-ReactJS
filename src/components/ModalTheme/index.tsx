@@ -3,8 +3,8 @@ import { Modal, ThemeSelector, ColorSelector } from './styles';
 type ModalThemeProps = {
   isOpen: boolean;
   onRequestClose: () => void;
-  isDefaultTheme: boolean;
-  setIsDefaultTheme: (is: boolean) => void;
+  themeColor: string;
+  handleSetThemeColor: (color: 'light' | 'dark') => void;
   primaryColor: string;
   handleSetPrimaryColor: (color: 'purple' | 'red' | 'green' | 'blue') => void;
 }
@@ -12,8 +12,8 @@ type ModalThemeProps = {
 export function ModalTheme({ 
   isOpen, 
   onRequestClose,
-  isDefaultTheme, 
-  setIsDefaultTheme,
+  themeColor, 
+  handleSetThemeColor,
   primaryColor,
   handleSetPrimaryColor
 }: ModalThemeProps) {
@@ -41,9 +41,26 @@ export function ModalTheme({
       <div className="content">
         <h1>Escolha o tema da aplicação</h1>
 
-        <ThemeSelector isDefaultTheme={isDefaultTheme}> 
-          <button onClick={() => setIsDefaultTheme(true)}>Claro</button>
-          <button onClick={() => setIsDefaultTheme(false)}>Escuro</button>
+        <ThemeSelector> 
+          <label className="light">
+            <input 
+              name="theme_color"
+              type="radio"
+              onChange={() => handleSetThemeColor('light')}
+              checked={themeColor === 'light' ? true : false}
+            />
+              Claro
+          </label>
+
+          <label className="dark">
+            <input 
+              name="theme_color"
+              type="radio"
+              onChange={() => handleSetThemeColor('dark')}
+              checked={themeColor === 'dark' ? true : false}
+            />
+              Escuro
+          </label>
         </ThemeSelector>
 
         <ColorSelector>

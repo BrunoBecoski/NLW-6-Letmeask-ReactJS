@@ -59,6 +59,23 @@ export const ThemeSelector = styled.div`
     cursor: pointer;
     border: 3px solid var(--background);
 
+    position: relative;
+
+    .checkmark {
+      position: absolute;
+      content: '';
+
+      top: 0;
+      left: 0;
+      border-radius: 8px;
+
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+
+      box-shadow: 0 5px 1px gray;
+    }
+
     &.light {
       background: var(--white);
       color: var(--black);
@@ -69,11 +86,8 @@ export const ThemeSelector = styled.div`
       color: var(--white);
     } 
     
-    & input:checked ~ .dark {
-      
-      border-color: red;
-      color: yellow;
-      font-weight: bold;
+    input:checked ~ .checkmark {
+      box-shadow: 0 5px 1px var(--primary);
     }
 
     &:hover {
@@ -81,8 +95,6 @@ export const ThemeSelector = styled.div`
       border: 3px solid var(--primary);
     }
   }
-  
-  
 `;
 
 export const ColorSelector = styled.div`

@@ -47,8 +47,9 @@ export function ModalTheme({
               name="theme_color"
               type="radio"
               onChange={() => handleSetThemeColor('light')}
-              checked={themeColor === 'light' ? true : false}
             />
+            <span className="checkmark"/>
+
               Claro
           </label>
 
@@ -57,8 +58,9 @@ export function ModalTheme({
               name="theme_color"
               type="radio"
               onChange={() => handleSetThemeColor('dark')}
-              checked={themeColor === 'dark' ? true : false}
             />
+            <span className="checkmark"/>
+
               Escuro
           </label>
         </ThemeSelector>

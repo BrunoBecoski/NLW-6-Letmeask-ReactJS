@@ -53,13 +53,27 @@ export const ThemeSelector = styled.div`
   gap: 8px;
   margin-top: 40px;
 
+  .light {
+    color: var(--black);
+    background: var(--white);
+  }
+  
+  .dark {
+    color: var(--white);
+    background: var(--black);
+  } 
+
   label {
-    border-radius: 8px;
+    /* border-radius: 8px; */
     padding: 15px 32px;
     cursor: pointer;
     border: 3px solid var(--background);
 
     position: relative;
+
+    input {
+      margin-right: 15px;
+    }
 
     .checkmark {
       position: absolute;
@@ -74,27 +88,59 @@ export const ThemeSelector = styled.div`
       z-index: 10;
 
       box-shadow: 0 5px 1px gray;
-    }
+    
+    
+      &:after {
+        content: '';
+        width: 100%;
+        height: 5px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        background: var(--white);
+        position: absolute;
+        top: -5px;
+      }
 
-    &.light {
-      background: var(--white);
-      color: var(--black);
+
+      &:before {
+        content: '';
+        width: 100%;
+        height: 3px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        background: var(--gray);
+        position: absolute;
+        top: 50px;
+      }
     }
     
-    &.dark {
-      background: var(--black);
-      color: var(--white);
-    } 
-    
-    input:checked ~ .checkmark {
-      box-shadow: 0 5px 1px var(--primary);
-    }
-
     &:hover {
       color: var(--primary);
       border: 3px solid var(--primary);
     }
   }
+
+  label.light .checkmark:after {
+    background: var(--white);
+  }
+
+  label.dark .checkmark:after {
+    background: var(--black);
+  }
+
+  label.light input:checked ~ .checkmark:after,
+  label.dark input:checked ~ .checkmark:after {
+    background: var(--background);
+  }
+
+  label.light input:checked ~ .checkmark:before {  
+    background: var(--white);
+  }
+
+  label.dark input:checked ~ .checkmark:before {
+    background: var(--black);
+  }
+
 `;
 
 export const ColorSelector = styled.div`

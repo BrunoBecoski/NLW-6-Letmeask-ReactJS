@@ -53,71 +53,81 @@ export const ThemeSelector = styled.div`
   gap: 8px;
   margin-top: 40px;
 
-  .light {
+  .light .checkmark {
     color: var(--black);
     background: var(--white);
   }
   
-  .dark {
+  .dark .checkmark {
     color: var(--white);
     background: var(--black);
   } 
 
   label {
-    /* border-radius: 8px; */
-    padding: 15px 32px;
     cursor: pointer;
-    border: 3px solid var(--background);
+
+    width: 110px; 
+    height: 50px;
 
     position: relative;
 
     input {
-      margin-right: 15px;
+      position: absolute;
+      opacity: 0; 
     }
 
     .checkmark {
-      position: absolute;
       content: '';
+      position: absolute;
+      
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 15px;
+      
+      font-size: 18px;
 
       top: 0;
       left: 0;
-      border-radius: 8px;
-
       width: 100%;
-      height: 100%;
-      z-index: 10;
-
-      box-shadow: 0 5px 1px gray;
+      height: 100%;    
+      border-radius: 8px;
+      box-shadow: 0 3px 0 gray;
     
-    
-      &:after {
-        content: '';
-        width: 100%;
-        height: 5px;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-        background: var(--white);
-        position: absolute;
-        top: -5px;
-      }
-
-
       &:before {
         content: '';
-        width: 100%;
-        height: 3px;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-        background: var(--gray);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--primary);
         position: absolute;
-        top: 50px;
+        left: 10px;
+      }
+
+      &:after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--background);
+        position: absolute;
+        left: 13px;
+        border: 2px solid transparent;
       }
     }
     
-    &:hover {
+    &:hover .checkmark{
+      font-weight: bold;
       color: var(--primary);
-      border: 3px solid var(--primary);
     }
+  }
+  
+  label input:checked ~ .checkmark {
+    font-weight: bold;
+    color: var(--primary);
+    border: 3px solid var(--primary);
+    transform: translateY(3px);
+    box-shadow: 0 0 0;
   }
 
   label.light .checkmark:after {
@@ -127,20 +137,18 @@ export const ThemeSelector = styled.div`
   label.dark .checkmark:after {
     background: var(--black);
   }
+  
+  label.light input:checked ~ .checkmark:after {
+    background: var(--primary);
+    border-color: var(--white);
+    left: 13px;
+  }
 
-  label.light input:checked ~ .checkmark:after,
   label.dark input:checked ~ .checkmark:after {
-    background: var(--background);
+    background: var(--primary);
+    border-color: var(--black);
+    left: 13px;
   }
-
-  label.light input:checked ~ .checkmark:before {  
-    background: var(--white);
-  }
-
-  label.dark input:checked ~ .checkmark:before {
-    background: var(--black);
-  }
-
 `;
 
 export const ColorSelector = styled.div`

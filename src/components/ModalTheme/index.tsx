@@ -49,9 +49,9 @@ export function ModalTheme({
               onChange={() => handleSetThemeColor('light')}
               checked={themeColor === 'light' ? true : false}
             />
-            <span className="checkmark"/>
-
+            <span className="checkmark">
               Claro
+            </span>
           </label>
 
           <label className="dark">
@@ -61,8 +61,9 @@ export function ModalTheme({
               onChange={() => handleSetThemeColor('dark')}
               checked={themeColor === 'dark' ? true : false}
             />
-            <span className="checkmark"/>
+            <span className="checkmark">
               Escuro
+            </span>
           </label>
         </ThemeSelector>
 

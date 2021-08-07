@@ -79,27 +79,23 @@ export const ThemeSelector = styled.div`
     .checkmark {
       content: '';
       position: absolute;
-      
       display: flex;
       align-items: center;
       justify-content: flex-end;
       padding-right: 15px;
-      
       font-size: 18px;
-
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;    
       border-radius: 8px;
-      box-shadow: 0 3px 0 gray;
+      box-shadow: 0 5px 0 gray;
     
       &:before {
         content: '';
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background: var(--primary);
         position: absolute;
         left: 10px;
       }
@@ -109,7 +105,6 @@ export const ThemeSelector = styled.div`
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: var(--background);
         position: absolute;
         left: 13px;
         border: 2px solid transparent;
@@ -126,8 +121,16 @@ export const ThemeSelector = styled.div`
     font-weight: bold;
     color: var(--primary);
     border: 3px solid var(--primary);
-    transform: translateY(3px);
+    transform: translateY(5px);
     box-shadow: 0 0 0;
+  }
+
+  label.light .checkmark:before {
+    background: var(--black);
+  }
+
+  label.dark .checkmark:before {
+    background: var(--white);
   }
 
   label.light .checkmark:after {
@@ -148,6 +151,18 @@ export const ThemeSelector = styled.div`
     background: var(--primary);
     border-color: var(--black);
     left: 13px;
+  }
+
+  label.light input:checked ~ .checkmark {
+    text-shadow: 0 1px 0 black;
+  }
+  label.dark input:checked ~ .checkmark {
+    text-shadow: 0 1px 0 white;
+  }
+
+  label.light input:checked ~ .checkmark:before,
+  label.dark input:checked ~ .checkmark:before {
+    background: var(--primary);
   }
 `;
 
@@ -178,6 +193,7 @@ export const ColorSelector = styled.div`
     height: 30px;
     width: 30px;
     border-radius: 50%;
+    box-shadow: 0 5px 0 gray;
   }
 
   .checkmark:after {
@@ -200,6 +216,11 @@ export const ColorSelector = styled.div`
 
   label.blue .checkmark {
     background-color: #4169E1;
+  }
+  
+  label input:checked ~ .checkmark {
+    box-shadow: 0 0 0;
+    transform: translateY(5px);
   }
 
   label input:checked ~ .checkmark:after {

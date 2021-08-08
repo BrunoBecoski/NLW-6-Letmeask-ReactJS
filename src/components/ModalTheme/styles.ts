@@ -89,7 +89,7 @@ export const ThemeSelector = styled.div`
       width: 100%;
       height: 100%;    
       border-radius: 8px;
-      box-shadow: 0 5px 0 gray;
+      box-shadow: 0 5px 0 2px gray;
     
       &:before {
         content: '';
@@ -98,6 +98,8 @@ export const ThemeSelector = styled.div`
         border-radius: 50%;
         position: absolute;
         left: 10px;
+
+        background: green;
       }
 
       &:after {
@@ -115,6 +117,14 @@ export const ThemeSelector = styled.div`
       font-weight: bold;
       color: var(--primary);
     }
+  }
+
+  label.light .checkmark {
+    border: 1px solid var(--black);
+  }
+
+  label.dark .checkmark {
+    border: 1px solid var(--white);
   }
   
   label input:checked ~ .checkmark {
@@ -154,10 +164,10 @@ export const ThemeSelector = styled.div`
   }
 
   label.light input:checked ~ .checkmark {
-    text-shadow: 0 1px 0 black;
+    text-shadow: 0 1px 0 var(--black);
   }
   label.dark input:checked ~ .checkmark {
-    text-shadow: 0 1px 0 white;
+    text-shadow: 0 1px 0 var(--white);
   }
 
   label.light input:checked ~ .checkmark:before,
@@ -189,17 +199,21 @@ export const ColorSelector = styled.div`
 
   .checkmark {
     position: absolute;
-    margin: 4px;
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    box-shadow: 0 5px 0 gray;
   }
 
   .checkmark:after {
     content: "";
     position: absolute;
-    display: none;
+    box-shadow: 0 3px 0 2px gray;
+    top: -9px;
+    left: -9px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 4px solid var(--primary);
   }
 
   label.purple .checkmark {
@@ -219,20 +233,14 @@ export const ColorSelector = styled.div`
   }
   
   label input:checked ~ .checkmark {
-    box-shadow: 0 0 0;
-    transform: translateY(5px);
+    width: 48px;
+    height: 48px;
+    top: -7px;
+    left: -7px;
   }
 
   label input:checked ~ .checkmark:after {
-    display: block;
+    top: -2px;
+    left: -2px;
   }
-
-  label .checkmark:after {
-    top: -6px;
-    left: -6px;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 4px solid var(--primary);
-  } 
 `; 

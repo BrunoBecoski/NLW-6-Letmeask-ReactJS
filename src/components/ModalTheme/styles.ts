@@ -89,7 +89,7 @@ export const ThemeSelector = styled.div`
       width: 100%;
       height: 100%;    
       border-radius: 8px;
-      box-shadow: 0 5px 0 2px gray;
+      box-shadow: 0 5px 0 1px gray;
     
       &:before {
         content: '';
@@ -98,17 +98,15 @@ export const ThemeSelector = styled.div`
         border-radius: 50%;
         position: absolute;
         left: 10px;
-
-        background: green;
       }
 
       &:after {
         content: '';
-        width: 10px;
-        height: 10px;
+        width: 12px;
+        height: 12px;
         border-radius: 50%;
         position: absolute;
-        left: 13px;
+        left: 12px;
         border: 2px solid transparent;
       }
     }
@@ -132,7 +130,7 @@ export const ThemeSelector = styled.div`
     color: var(--primary);
     border: 3px solid var(--primary);
     transform: translateY(5px);
-    box-shadow: 0 0 0;
+    box-shadow: none;
   }
 
   label.light .checkmark:before {
@@ -154,20 +152,13 @@ export const ThemeSelector = styled.div`
   label.light input:checked ~ .checkmark:after {
     background: var(--primary);
     border-color: var(--white);
-    left: 13px;
+    left: 12px;
   }
 
   label.dark input:checked ~ .checkmark:after {
     background: var(--primary);
     border-color: var(--black);
-    left: 13px;
-  }
-
-  label.light input:checked ~ .checkmark {
-    text-shadow: 0 1px 0 var(--black);
-  }
-  label.dark input:checked ~ .checkmark {
-    text-shadow: 0 1px 0 var(--white);
+    left: 12px;
   }
 
   label.light input:checked ~ .checkmark:before,
@@ -177,7 +168,7 @@ export const ThemeSelector = styled.div`
 `;
 
 export const ColorSelector = styled.div`
-  margin-top: 24px;
+  margin-top: 32px;
   width: 75%;
   height: 42px;
 
@@ -199,21 +190,22 @@ export const ColorSelector = styled.div`
 
   .checkmark {
     position: absolute;
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 35px;
     border-radius: 50%;
+    box-shadow: 0 5px 0 1px gray;
   }
 
   .checkmark:after {
-    content: "";
+    content: '';
     position: absolute;
-    box-shadow: 0 3px 0 2px gray;
-    top: -9px;
-    left: -9px;
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
-    border: 4px solid var(--primary);
+    top: 2px;
+    left: 2px;
+    border: 3px solid var(--background);
+    background: var(--background);
   }
 
   label.purple .checkmark {
@@ -233,14 +225,13 @@ export const ColorSelector = styled.div`
   }
   
   label input:checked ~ .checkmark {
-    width: 48px;
-    height: 48px;
-    top: -7px;
-    left: -7px;
+    transform: translateY(5px);
+    box-shadow: none;
   }
-
+ 
   label input:checked ~ .checkmark:after {
-    top: -2px;
-    left: -2px;
+    background: var(--primary);
+    top: 2px;
+    left: 2px;
   }
 `; 

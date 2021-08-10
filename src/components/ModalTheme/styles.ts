@@ -2,29 +2,31 @@ import styled from 'styled-components';
 import ReactModal from 'react-modal';
 
 export const Modal = styled(ReactModal)`
+  @media (max-width: 720px) {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
   border-radius: 8px;
   background: var(--background);
-
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  position: relative;
 
   .closeButton {
-    margin-top: 10px;
-    margin-right: 10px;
+    position: absolute;
     cursor: pointer;
-
+    top: 10px;
+    right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     border: 2px solid var(--color_50);
     border-radius: 50%;
-
     width: 30px; 
     height: 30px;
     background: transparent;
-
 
     &:hover {
       path {
@@ -39,7 +41,7 @@ export const Modal = styled(ReactModal)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 24px 100px 48px;
+    padding: 64px 110px; 
 
     h1 {
       font-family: 'Poppins', sans-serif;
@@ -50,32 +52,20 @@ export const Modal = styled(ReactModal)`
 
 export const ThemeSelector = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 32px;
   margin-top: 40px;
-
-  .light .checkmark {
-    color: var(--black);
-    background: var(--white);
-  }
-  
-  .dark .checkmark {
-    color: var(--white);
-    background: var(--black);
-  } 
 
   label {
     cursor: pointer;
-
     width: 110px; 
     height: 50px;
-
     position: relative;
 
     input {
       position: absolute;
       opacity: 0; 
     }
-
+    
     .checkmark {
       content: '';
       position: absolute;
@@ -89,7 +79,7 @@ export const ThemeSelector = styled.div`
       width: 100%;
       height: 100%;    
       border-radius: 8px;
-      box-shadow: 0 5px 0 1px gray;
+      box-shadow: 0 5px 0 1px var(--primary);
     
       &:before {
         content: '';
@@ -99,7 +89,7 @@ export const ThemeSelector = styled.div`
         position: absolute;
         left: 10px;
       }
-
+      
       &:after {
         content: '';
         width: 12px;
@@ -111,21 +101,42 @@ export const ThemeSelector = styled.div`
       }
     }
     
-    &:hover .checkmark{
+    &.light .checkmark {
+      color: var(--black);
+      background: var(--white);
+      &:before {
+        background: var(--black);
+      }
+      &:after {
+        background: var(--white);
+      }
+    }
+    
+    &.dark .checkmark {
+      color: var(--white);
+      background: var(--black);
+      &:before {
+        background: var(--white);
+      }
+      &:after {
+        background: var(--black);
+      }
+    } 
+
+    &:hover .checkmark {
       font-weight: bold;
       color: var(--primary);
+      &:before {
+        background: var(--primary);
+      }
     }
   }
 
-  label.light .checkmark {
-    border: 1px solid var(--black);
+  .checkmark {
+    transition: transform .3s, box-shadow .3s;
   }
 
-  label.dark .checkmark {
-    border: 1px solid var(--white);
-  }
-  
-  label input:checked ~ .checkmark {
+  input:checked ~ .checkmark {
     font-weight: bold;
     color: var(--primary);
     border: 3px solid var(--primary);
@@ -133,44 +144,34 @@ export const ThemeSelector = styled.div`
     box-shadow: none;
   }
 
-  label.light .checkmark:before {
-    background: var(--black);
+  .light input:checked ~ .checkmark {
+    &:after {
+      background: var(--primary);
+      border-color: var(--white);
+      left: 12px;
+    }
+    &:before {
+      background: var(--primary);
+    }
   }
 
-  label.dark .checkmark:before {
-    background: var(--white);
-  }
-
-  label.light .checkmark:after {
-    background: var(--white);
-  }
-
-  label.dark .checkmark:after {
-    background: var(--black);
-  }
-  
-  label.light input:checked ~ .checkmark:after {
-    background: var(--primary);
-    border-color: var(--white);
-    left: 12px;
-  }
-
-  label.dark input:checked ~ .checkmark:after {
-    background: var(--primary);
-    border-color: var(--black);
-    left: 12px;
-  }
-
-  label.light input:checked ~ .checkmark:before,
-  label.dark input:checked ~ .checkmark:before {
-    background: var(--primary);
+  .dark input:checked ~ .checkmark {
+    &:after{
+      background: var(--primary);
+      border-color: var(--black);
+      left: 12px;
+    }
+    &:before {
+      background: var(--primary);
+    }
   }
 `;
 
 export const ColorSelector = styled.div`
   margin-top: 32px;
   width: 75%;
-  height: 42px;
+
+  gap: 24px;
 
   display: flex;
   justify-content: space-evenly;
@@ -193,45 +194,50 @@ export const ColorSelector = styled.div`
     height: 35px;
     width: 35px;
     border-radius: 50%;
-    box-shadow: 0 5px 0 1px gray;
+    box-shadow: 0 5px 0 1px #835AFD40;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      border: 3px solid var(--background);
+      background: var(--background);
+    }
   }
 
-  .checkmark:after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    top: 2px;
-    left: 2px;
-    border: 3px solid var(--background);
-    background: var(--background);
-  }
-
-  label.purple .checkmark {
+  .purple .checkmark {
     background-color: #835AFD;
+    box-shadow: 0 5px 0 1px #835AFDBF;
   }
 
-  label.red .checkmark {
+  .red .checkmark {
     background-color: #CD5C5C;
+    box-shadow: 0 5px 0 1px #CD5C5CBF;
   }
 
-  label.green .checkmark {
+  .green .checkmark {
     background-color: #2E8B57;
+    box-shadow: 0 5px 0 1px #2E8B57BF;
   }
 
-  label.blue .checkmark {
+  .blue .checkmark {
     background-color: #4169E1;
+    box-shadow: 0 5px 0 1px #4169E1BF;
   }
-  
-  label input:checked ~ .checkmark {
+
+  .checkmark {
+    transition: transform .3s, box-shadow .3s;
+  }
+
+  input:checked ~ .checkmark {
     transform: translateY(5px);
     box-shadow: none;
-  }
- 
-  label input:checked ~ .checkmark:after {
-    background: var(--primary);
-    top: 2px;
-    left: 2px;
+    &:after {
+      background: var(--primary);
+    }
   }
 `; 

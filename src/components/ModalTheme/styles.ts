@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import ReactModal from 'react-modal';
 
 export const Modal = styled(ReactModal)`
-  @media (max-width: 720px) {
+  @media (max-width: 500px) {
     width: 100%;
     align-items: center;
     justify-content: center;

@@ -24,7 +24,7 @@ export function RemoveQuestionModal({
         }
       }}
     >
-      <button onClick={onRequestClose}>
+      <button className="closeButton" onClick={onRequestClose}>
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M29.66 18.3398L18.34 29.6598" stroke="var(--color_50)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M29.66 29.6598L18.34 18.3398" stroke="var(--color_50)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
@@ -65,7 +65,7 @@ export function EndRoomModal({
         }
       }}
     >
-      <button onClick={onRequestClose}>
+      <button className="closeButton" onClick={onRequestClose}>
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M29.66 18.3398L18.34 29.6598" stroke="var(--color_50)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M29.66 29.6598L18.34 18.3398" stroke="var(--color_50)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>

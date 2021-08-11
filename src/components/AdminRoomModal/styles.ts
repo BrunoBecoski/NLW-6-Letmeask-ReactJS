@@ -2,35 +2,38 @@ import styled from 'styled-components';
 import ReactModal from 'react-modal';
 
 export const Modal = styled(ReactModal)`
+  @media (max-width: 500px) {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
   border-radius: 8px;
   background: var(--background);
-
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  position: relative;
   
-  > button {
-    margin-top: 10px;
-    margin-right: 10px;
+  .closeButton {
+    position: absolute;
     cursor: pointer;
-
+    top: 10px;
+    right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     border: 2px solid var(--color_50);
     border-radius: 50%;
-
     width: 30px; 
     height: 30px;
     background: transparent;
 
-
     &:hover {
       path {
         stroke: var(--danger_hover);
+        stroke-width: 8px;
       }
-      border-color: var(--danger_hover);
+      border: 3px solid var(--danger_hover);
     }
   }
 

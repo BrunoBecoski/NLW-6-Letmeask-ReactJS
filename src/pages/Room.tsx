@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Button } from '../components/Button';
@@ -60,6 +60,10 @@ export function Room() {
       });
     }
   }
+
+  useEffect(() => {
+    console.log('efeito')
+  }, [questions])
 
   return (
     <div>

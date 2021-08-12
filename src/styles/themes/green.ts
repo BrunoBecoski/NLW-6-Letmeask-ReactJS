@@ -1,4 +1,4 @@
-export default {
+const green = {
   title: 'green',
 
   colors: {
@@ -6,3 +6,5 @@ export default {
     primary_transparent: '#2E8B5740', // 25%
   }
 }
+
+export default green;

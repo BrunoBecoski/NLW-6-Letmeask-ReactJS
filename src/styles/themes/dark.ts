@@ -1,4 +1,4 @@
-export default {
+const dark = {
   title: 'dark',
 
   colors: {
@@ -14,3 +14,5 @@ export default {
     primary_transparent: '', // 25%
   }
 }
+
+export default dark;

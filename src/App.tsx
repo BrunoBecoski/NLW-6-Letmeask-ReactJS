@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useState } from 'react';
-import { DefaultTheme, ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 
 import { Home } from './pages/Home';
 import { NewRoom } from './pages/NewRoom';
@@ -43,10 +43,7 @@ function App() {
     setPrimaryColor(color);
   }
 
-
-
   let theme = light;
-
 
   if(themeColor === 'light') {
     theme = light;

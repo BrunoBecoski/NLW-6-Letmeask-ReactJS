@@ -23,6 +23,8 @@ export function Room() {
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id; 
 
+  const [isUpdated, setIsUpdated] = useState(false);
+
   const { title, questions, isLoading } = useRoom(roomId);
 
   async function handleSendQuestion(event: FormEvent) {
@@ -61,8 +63,17 @@ export function Room() {
     }
   }
 
+  let oldQuestions: any;
+
   useEffect(() => {
-    console.log('efeito')
+    oldQuestions = questions;
+  }, [])
+
+  useEffect(() => {
+    setIsUpdated(true);
+    setTimeout(() => {  
+      setIsUpdated(false);
+    }, 100);
   }, [questions])
 
   return (
@@ -116,7 +127,9 @@ export function Room() {
               </EmptyQuestions>)
           }
 
-          {questions.map((question) => {
+          {isLoading || isUpdated ? <Spinner /> :        
+
+          questions.map((question) => {
             return (
               <Question
                 key={question.id} 
@@ -140,7 +153,8 @@ export function Room() {
                 )}
               </Question>
             );
-          })}
+          })
+          }
         </div>
       </Main>
     </div>

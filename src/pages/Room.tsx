@@ -25,9 +25,15 @@ export function Room() {
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id; 
 
-  const [isUpdated, setIsUpdated] = useState(false);
+  // const [isUpdated, setIsUpdated] = useState(false);
 
   const { title, questions, isLoading } = useRoom(roomId);
+
+  const [allQuestions, setAllQuestions] = useState([...questions]);
+
+  useEffect(() => {
+    setAllQuestions(questions)
+  }, [questions])
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -65,18 +71,34 @@ export function Room() {
     }
   }
 
-  let oldQuestions: any;
 
-  useEffect(() => {
-    oldQuestions = questions;
-  }, [])
+  // function animation(id: string) {
+  //   const up = allQuestions.filter(question => question.id === id);
+  //   const down = allQuestions.filter(question => question.id !== id);
 
-  useEffect(() => {
-    setIsUpdated(true);
-    setTimeout(() => {  
-      setIsUpdated(false);
-    }, 100);
-  }, [questions])
+  //   const all = [...up, ...down];
+
+  //   setAllQuestions(down);
+
+  //   setTimeout(() => {
+  //     setAllQuestions(all);
+  //   }, 1000)
+
+    
+  // }
+
+  // let oldQuestions: any;
+
+  // useEffect(() => {
+  //   oldQuestions = questions;
+  // }, [])
+
+  // useEffect(() => {
+  //   setIsUpdated(true);
+  //   setTimeout(() => {  
+  //     setIsUpdated(false);
+  //   }, 100);
+  // }, [questions])
   
   return (
     <div>
@@ -114,6 +136,7 @@ export function Room() {
           </div>
         </Form>
 
+<>
         {/* <div className="question-list">
           {isLoading && <Spinner />}
 
@@ -158,7 +181,8 @@ export function Room() {
           })
           }
         </div> */}
-
+</>
+          
           {isLoading && <Spinner />}
           {questions.length === 0 && !isLoading && 
 
@@ -174,7 +198,7 @@ export function Room() {
        
        <ul>
         <TransitionGroup className="todo-list">
-          {questions.map((question) => (
+          {allQuestions.map((question) => (
             <CSSTransition
               key={question.id}
               timeout={200}
@@ -194,8 +218,7 @@ export function Room() {
                         type="button"
                         aria-label="Marcar como gostei"
                         onClick={() =>  {
-                          handleLikeQuestion(question.id, question.likeId)
-                          
+                          handleLikeQuestion(question.id, question.likeId);
                         }}
                       >
                         { question.likeCount > 0 && <span>{question.likeCount}</span>}

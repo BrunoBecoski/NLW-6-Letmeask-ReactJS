@@ -71,21 +71,41 @@ export function Room() {
     }
   }
 
+  function animation() {
+    const questionsHighlight = allQuestions.filter((question) => {
+      if (question.isHighlighted && !question.isAnswered) {
+        return question;
+      }
+    });
 
-  // function animation(id: string) {
-  //   const up = allQuestions.filter(question => question.id === id);
-  //   const down = allQuestions.filter(question => question.id !== id);
+    const questionsVanilla = allQuestions.filter((question) => {
+      if (!question.isHighlighted && !question.isAnswered) {
+        return question;
+      }
+    });
 
-  //   const all = [...up, ...down];
+    const questionsAnswered = allQuestions.filter((question) => {
+      if(question.isAnswered) {
+        return question;
+      }
+    });
 
-  //   setAllQuestions(down);
+    questionsVanilla.sort((a, b) => {
+      if (a.likeCount < b.likeCount) {
+        return 1;
+      }
+      if (a.likeCount > b.likeCount) {
+        return -1;
+      }
 
-  //   setTimeout(() => {
-  //     setAllQuestions(all);
-  //   }, 1000)
+      return 0;
+    });
 
+    const questionsFormatted = [...questionsHighlight, ...questionsVanilla, ...questionsAnswered]
+
+    setAllQuestions(questionsFormatted);
     
-  // }
+  }
 
   // let oldQuestions: any;
 
@@ -218,7 +238,8 @@ export function Room() {
                         type="button"
                         aria-label="Marcar como gostei"
                         onClick={() =>  {
-                          handleLikeQuestion(question.id, question.likeId);
+                          handleLikeQuestion(question.id, question.likeId)
+                          animation()
                         }}
                       >
                         { question.likeCount > 0 && <span>{question.likeCount}</span>}

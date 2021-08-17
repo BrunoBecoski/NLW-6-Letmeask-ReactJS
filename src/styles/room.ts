@@ -82,28 +82,6 @@ export const Main = styled.main`
   .question-list {
     margin-top: 32px;
   }
-
-  ul {
-    margin-top: 32px;
-    li {
-      list-style: none;
-      margin-bottom: 10px;
-    }
-    .item-enter {
-      opacity: 0;
-    }
-    .item-enter-active {
-      opacity: 1;
-      transition: opacity 500ms ease-in;
-    }
-    .item-exit {
-      opacity: 1;
-    }
-    .item-exit-active {
-      opacity: 0;
-      transition: opacity 500ms ease-in;
-    }
-  }
 `;
 
 export const Form = styled.form`

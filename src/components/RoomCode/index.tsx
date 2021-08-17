@@ -10,17 +10,18 @@ export function RoomCode(props: RoomCodeProps) {
   function copyRoomCodeToClipboard() {
     if(window.isSecureContext) {
       navigator.clipboard.writeText(props.code)
+      
+      toast.success('Código copiado', { duration: 2000,
+        position: 'top-center',
+        style: {
+          fontWeight: 500,
+          color: 'var(--primary)',
+          border: '2px solid var(--primary)',
+          boxShadow: '1px 1px 5px var(--white)',
+        },
+      });
     }
 
-    toast.success('Código copiado', { duration: 2000,
-      position: 'top-center',
-      style: {
-        fontWeight: 500,
-        color: 'var(--primary)',
-        border: '2px solid var(--primary)',
-        boxShadow: '1px 1px 5px var(--white)',
-      },
-    });
   }
 
   return (

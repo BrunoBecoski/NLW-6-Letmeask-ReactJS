@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="" src=".github/logo.png" />
+  <img alt="Logo Letmeask" src=".github/logo.png" />
 </p>
 
 </br >
@@ -7,6 +7,12 @@
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>
 </p> 
+
+</br >
+
+<p align="center">
+  <img alt="Home" src=".github/home.png" width="800">
+</p>
 
 </br >
 

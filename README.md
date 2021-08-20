@@ -1,4 +1,14 @@
-#NLW 6 Letmeask ReactJS
+<p align="center">
+  <img alt="" src=".github/logo.png" />
+</p>
+
+</br >
+
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>
+</p> 
+
+</br >
 
 ## ⚙ Tecnologias
 
